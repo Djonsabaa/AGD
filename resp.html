@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <title>Légumes</title>
+    
+    <head>
+        <style>
+            /* === Base Header === */
+header {
+  background-color: white;
+  color: black;
+  width: 100%;
+  padding: 1rem 2vw;
+  transition: all 0.5s ease-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-sizing: border-box;
+
+  
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo img {
+  width: auto;
+  height: 40px;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* visible uniquement sur mobile */
+}
+
+/* === Navigation principale === */
+.main-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.main-nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+  color: #4CAF50;
+}
+
+/* === Responsive Design : Mobile First === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .main-nav ul li {
+    text-align: center;
+    width: 100%;
+  }
+}
+            </style>
+    </head>
+    <body>
+  <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+  <div class="logo">
+    <img src="Images/logo-nature.avif" alt="logo">
+    <h2 class="clignotant">AGD</h2>
+  </div>
+
+  <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#accueil.html" target="_blank"><i class="fa-solid fa-house" style="color: #e7e5e5;"></i> Accueil</a></li>
+      <li><a href="notre_histo.html" target="_blank">À propos</a></li>
+      <li><a href="#" onclick="openModal('servicesModal')">Off & Services</a></li>
+      <li><a href="#" onclick="openModal('partnersModal')">Nos partenaires</a></li>
+      <li><a href="commande.html" target="_blank" class="comd">Commande</a></li>
+    </ul>
+  </nav>
+</header>
+nqc ,qnchjkn,swx vg bnxw
+sjjfkgjgngngjgjhhe;iut,ghhfriye;u'nrt,rdzjd;funsftd
+    <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.main-nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
