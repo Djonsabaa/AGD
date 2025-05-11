@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaturaBloom | Produits Bio à Base de Hibiscus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        :root {
+            --primary: #C6426E;
+            --secondary: #F5A962;
+            --accent: #477D75;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(rgba(198, 66, 110, 0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold title-font text-rose-700">NaturaBloom</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-rose-700 font-medium border-b-2 border-rose-700 pb-1">Accueil</a>
+                    <a href="#" class="hover:text-rose-700 transition">Nos Produits</a>
+                    <a href="#" class="hover:text-rose-700 transition">Notre Histoire</a>
+                    <a href="#" class="hover:text-rose-700 transition">Recettes</a>
+                    <a href="#" class="hover:text-rose-700 transition">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-rose-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-rose-700">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-rose-700 relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-1 -right-1 bg-rose-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="md:hidden p-2 text-gray-600 hover:text-rose-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold title-font mb-6 text-gray-900">
+                        La magie naturelle de <span class="text-rose-700">l'hibiscus</span> & <span class="text-amber-600">des fruits</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Découvrez nos délices artisanaux transformés avec amour à partir d'ingrédients 100% naturels. 
+                        Des saveurs authentiques qui racontent notre terroir.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="px-8 py-3 bg-rose-700 text-white rounded-full hover:bg-rose-800 transition shadow-lg hover:shadow-rose-200">
+                            Explorer nos produits
+                        </a>
+                        <a href="#" class="px-8 py-3 border border-rose-700 text-rose-700 rounded-full hover:bg-rose-50 transition">
+                            Notre histoire <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="floating">
+                        <img src="https://images.unsplash.com/photo-1593179241557-0fa8e97b6d3c" 
+                             class="rounded-2xl shadow-xl border-8 border-white" 
+                             alt="Produits à base d'hibiscus">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-md z-10">
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-leaf text-amber-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">100% Naturel</p>
+                                <p class="text-xs text-gray-500">Sans conservateurs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-md z-10">
+                        <div class="flex items-center">
+                            <div class="bg-rose-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-heart text-rose-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Artisanal</p>
+                                <p class="text-xs text-gray-500">Fait main</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold title-font mb-4">Nos Catégories Phares</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Explorez nos gammes de produits transformés avec des ingrédients de qualité</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa6f0c79d38c" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Hibiscus">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Hibiscus</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Oranges">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Oranges</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Dattes">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Dattes</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa6f0c79d38c" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Mélanges">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Mélanges</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold title-font mb-4">Nos Produits Vedettes</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Découvrez nos meilleures ventes et nouveautés</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1593179241557-0fa8e97b6d3c" 
+                             class="w-full h-64 object-cover" 
+                             alt="Confiture d'hibiscus">
+                        <div class="absolute top-3 left-3 bg-rose-700 text-white text-xs font-bold px-2 py-1 rounded">
+                            Nouveau
+                        </div>
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Confiture d'Hibiscus</h3>
+                                <p class="text-gray-500 text-sm">250g</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">12,90 €</span>
+                            <button class="bg-rose-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b" 
+                             class="w-full h-64 object-cover" 
+                             alt="Jus d'orange et hibiscus">
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Jus Orange-Hibiscus</h3>
+                                <p class="text-gray-500 text-sm">750ml</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">8,50 €</span>
+                            <button class="bg-rose-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a" 
+                             class="w-full h-64 object-cover" 
+                             alt="Dattes farcies">
+                        <div class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            Populaire
+                        </div>
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Dattes Farcies</h3>
+                                <p class="text-gray-500 text-sm">200g</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">14,90 €</span>
+                            <button class="bg-rose-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa6f0c79d38c" 
+                             class="w-full h-64 object-cover" 
+                             alt="Thé d'hibiscus">
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Thé d'Hibiscus</h3>
+                                <p class="text-gray-500 text-sm">20 sachets</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">9,90 €</span>
+                            <button class="bg-rose-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-rose-700 text-rose-700 rounded-full hover:bg-rose-50 transition">
+                    Voir tous les produits <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold title-font mb-4">Pourquoi choisir Natura

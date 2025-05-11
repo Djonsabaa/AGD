@@ -11,14 +11,13 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
         }
         .services {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin-top: 2rem;
-            background-image: url('Images/savons.jpg');
+            background-image: url('Images/savon-naturel-feuilles.jpg');
         }
         .service {
             flex-basis: calc(33.333% - 20px);
@@ -55,45 +54,37 @@
             }
         }
         /* bouton ingredien*/
-        a {
-            display: inline-block;
-            background-color: white;
-            color: green;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 9999px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
 
-      
-        a:hover {
-            background-color: lightgreen;
-        }
         .output {
             margin-top: 10px;
             font-size: 18px;
-            font-weight: bold;
+            width: 500px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-left: 500px;
+            background-color: white;
+            color: blue;
         }
     </style>
 </head>
-<body>
+<body >
     <main>
-        <section class="hero bg-blue-400 text-white py-20">
-            <div class="container mx-auto text-center px-4">
-                <h2 class="text-4xl font-bold mb-4">Découvrez notre large gamme de Savons Cosmétiques Naturels</h2>
+        <section class="hero bg-blue-400  text-white py-20">
+            <div class="container max-auto text-center ">
+                <h3 class="text-3xl font-bold mb-4">Découvrez notre large gamme de Savons Cosmétiques Naturels</h3>
                 <p class="text-xl mb-8">Fabriqués à partir de plantes pour prendre soin de votre peau en douceur</p>
-                <a href="#services" class="bg-white text-blue-400 py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-100 transition duration-300">Voir Wakkilaré Savon</a>
-                <a href="#categories" class="bg-white text-blue-400 py-2 px-6 rounded-full text-lg 
-                font-semibold hover:bg-green-100 transition duration-300" onclick="showText(event, this)">
-                Voir nos ingrédients </a>
-                <div class="output"></div>
-            
+                
+                <a href="#services" class="bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold 
+                hover:bg-blue-300 transition duration-300  border-2 border-solid"> Voir Wakkilaré Savon</a>
+
+                    <a href="#categories" class=" bg-white text-blue-400 border-2 border-blue-400 py-2 px-6 rounded-full text-lg 
+                    font-semibold hover:bg-blue-300 transition duration-300" onclick="showText(event)">
+                    Voir nos ingrédients </a> 
+                    <div id="output" class="mt-4"></div>    
             </div>
-        </section>
-<br>
-        <h2 class="text-3xl font-bold text-center mb-12">Nos Catégories de Wakkilaré Savons <br> 100 % naturels : sans produits chimiques agressifs.</h2>
+        </section>  <br>
+        <h3 class="text-2xl font-bold text-center mb-12">Nos Catégories de Wakkilaré Savons <br> 100 % naturels : sans produits chimiques agressifs.</h3>
         <section id="services" class="services">
             <div class="service">
                 <h3>Savon Nourrisson</h3>
@@ -121,18 +112,18 @@
             </div> 
         </section>
 
-        <section id="about" class="bg-white py-16"  style="background-image: url('Images/savon-naturel-feuilles.jpg');"  >
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center  mt-24 ">Notre Engagement</h2>   <br> <br> <br>
+        <section id="about" class="bg-blue-50 py-16"  >
+            <div class="container mx-auto px-4 ">
+                <h2 class="text-3xl font-bold text-center  mt-18 ">Notre Engagement</h2>   <br> 
                 <div class="max-w-3xl mx-auto text-center">
-                    <p class="text-2xl mb-6">Chez Wakkilaré Savon, nous croyons en la puissance des ingrédients naturels. Tous nos savons sont fabriqués à partir de plantes soigneusement sélectionnées pour leurs propriétés bénéfiques pour la peau.</p>
+                    <p class=" mb-6">Chez Wakkilaré Savon, nous croyons en la puissance des ingrédients naturels. Tous nos savons sont fabriqués à partir de plantes soigneusement sélectionnées pour leurs propriétés bénéfiques pour la peau.</p>
                     <!-- <p class=" text-2xl mb-6">Notre processus de fabrication de savon Botanique respecte l'environnement et nous n'utilisons que des emballages biodégradables ou recyclables.</p> -->
                     <a href="#" class="inline-block bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">En savoir plus</a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="bg-blue-100 py-16">
+        <!-- <section id="contact" class="bg-blue-100 py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
                 <form class="max-w-lg mx-auto">
@@ -151,7 +142,7 @@
                     <button type="submit" class="w-full bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">Envoyer</button>
                 </form>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <footer>
@@ -159,14 +150,57 @@
             <p>&copy; 2025 Wakkilaré Savon. Tous droits réservés.</p>
         </div>
     </footer>
-            <script>  //pour le bouton voir nos ingrediens
-                function showText(event, link) {
-                    event.preventDefault(); // Empêche la navigation
-                    const outputDiv = link.nextElementSibling;
-                    outputDiv.innerHTML = "<p> <u style='list-style-type:circle; text-decoration: none;'><li>Aloe vera🌱: hydratant et apaisant</li><li>Moringa🍃: riche en antioxydant</li><li>Beurre de karité🧈: nourrit la peau</li><li>Menthe poivrée 🍃 : rafraîchissante</li><li>Orange douce 🍊</li><li>Huile de coco 🥥: nourrit la peau</li><li>Huile d'olive: nourrit la peau</li></ul> </p>";
-                }
-            </script>
         
+        <script>
+            function showText(event) {
+              event.preventDefault();
+            
+              const ingredients = [
+                "Aloe vera🌱: hydratant et apaisant",
+                "Menthe poivrée 🍃 : rafraîchissante",
+                "Beurre de karité🧈: nourrit la peau",
+                "Huile de coco 🥥: nourrit la peau",
+                "Moringa🍃: riche en antioxydant",
+                "Huile d'olive: nourrit la peau",
+                
+              ];
+            
+              const output = document.getElementById("output");
+              output.innerHTML = ""; // vider si on clique plusieurs fois
+            
+              const container = document.createElement("div");
+              container.style.backgroundColor = "";
+              container.style.width = "36%";
+              container.style.margin = "auto";
+              container.style.borderRadius="20px";
+              container.classList.add("bg-blue-50");
+            
+              const ul = document.createElement("ul");
+              
+              ul.style.paddingLeft = "20px";
+              ul.style.textDecoration = "none";
+            
+              container.appendChild(ul);
+              output.appendChild(container);
+            
+              ingredients.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                li.style.opacity = 0;
+                li.style.transition = "opacity 0.5s ease";
+                li.style.fontSize = "24px";
+                
+            
+                setTimeout(() => {
+                  ul.appendChild(li);
+                  requestAnimationFrame(() => {
+                    li.style.opacity = 1;
+                  });
+                }, index * 300); // 300ms d'intervalle entre chaque item
+              });
+            }
+            </script>
+            
 
 
 </body>

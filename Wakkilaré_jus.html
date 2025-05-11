@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        :root {
+            --primary: #C6426E;
+            --secondary: #F5A962;
+            --accent: #477D75;
+        }
+           body{
+            /*background: linear-gradient(135deg, rgba(0, 128, 128, 0.6), rgba(209, 194, 194, 0.8));*/
+            font-family: 'Times New Roman', Times, serif;
+           
+        }
+ header{
+    background-color: white;
+     color: black;
+     height: 90px;
+     width: 100%;
+     
+     transition: all 0.5s ease-out;
+     text-align: center;
+            display: flex;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; 
+                  
+        }
+        header nav ul {
+           color: black;
+            height: 100%;
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 35%;
+            text-indent: 20px;
+       }
+       .logo{
+        width: 60px;
+       }
+        .logo img{
+            margin-left: 40px;
+            width: 80%;
+            height: 60%;
+        }
+        nav ul li a{
+            color: black;
+            text-decoration: none;
+            font-size: 24px;
+            margin-left: 15px;
+        
+        }
+        ul li a:hover{
+            background-color:rgb(184, 216, 241);
+            color:#007bff;
+            border-radius: 5px;
+            transition: all ease 0.3s;
+        }
+        
+        
+         @keyframes clignoter {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+            }
+        .clignotant{
+            animation: clignoter 3s infinite;
+            color: rgb(96, 140, 223);
+            font-size: large;
+            justify-content: left;
+            margin-left: 45px;
+        }
+
+         /* Modal */
+        .modal {
+            position: fixed;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        .modal h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .modal ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 40px;
+        }
+        .modal ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1em;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .modal ul li a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .service{
+            display: flex;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            
+        }
+          .hero-pattern {
+            background-image: radial-gradient(rgba(198, 66, 110, 0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+         .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        #jus{
+         padding-top: 3rem;
+         background-color: white;
+        }
+            /* footer */
+        .footer {
+  background-color: #4571d1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+.social-icons .fa-facebook{background-color: #3b5998; }
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter{background-color: #1DA1F2; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding-top: 15px;
+}
+
+    </style>
+</head>
+<body class="bg-blue-50 text-gray-800 transition-colors duration-200">
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+      <div class="logo">
+        <img src="Images/logo-nature.avif" alt="logo"> 
+        <h2 class="clignotant">AGD </h2>
+    </div>  
+    
+        <nav >
+            <ul>
+     <li><a href="#accueil.html" target="_blank"> <i class="fa-solid fa-house" style="color: #e7e5e5;"></i> Accueil </a></li>
+    <li> <a href="notre_histo.html" target="_blank"> A propos</a> </li>
+
+    <li><a href="#" onclick="openModal('servicesModal')">Services</a></li>
+    <li><a href="#" onclick="openModal('partnersModal')">Nos partenaires</a></li> 
+    <li> <a href="commande.html" target="_blank" class="comd">Commande</a> </li> 
+</ul>      
+
+    </nav>
+    </header>
+<br> <br>
+
+<div id="servicesModal" class="modal">
+    <div class="service">
+    <h2>Services:</h2>
+    <ul>
+        <li><a href="legumes.html">légumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="poissons.html">Poissons</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="pépinière.html">Pipinière</a></li>
+        <li><a href="Wakkilaré_Savon.html.html">Wakkilaré Savon</a></li>
+        <li><a href="#">Wakkilaré produits</a></li>
+    </ul>
+</div> </div>
+
+<div id="partnersModal" class="modal">
+    <div class="service">  
+    <h2>Nos partenaires:</h2>
+    <ul>
+        <li><a href="#">Partenaire 1</a></li>
+        <li><a href="#">Partenaire 2</a></li>
+        <li><a href="#">Partenaire 3</a></li>
+    </ul>
+</div> </div>
+<div id="overlay" class="overlay" onclick="closeModal()"></div>
+
+<section class="hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold title-font mb-6 text-gray-900">
+                        La fraîcheur naturelle de <span class="text-rose-700">l'hibiscus</span> & des fruits
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Chez Wakkilaré jus, nous transformons des fruits en jus 100% naturels sans additifs.
+                        Découvrez nos délicieux jus artisanaux transformés à partir d'ingrédients 100% bio. 
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#jus" class="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-lg hover:shadow-rose-200">
+                            Nos jus
+                        </a>
+                        <a href="plantes.html" class="px-8 py-3 border border-blue-700 text-blue-700 rounded-full hover:bg-blue-90 transition">
+                            Nos fruits<i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="floating">
+                        <img src="Images/jus orange.avif"
+                             class="rounded-2xl shadow-xl h-90 w-30 border-8 border-white " 
+                             alt="Produits à base d'hibiscus">
+                    </div> 
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-md z-10">
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-leaf text-amber-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">100% Naturel</p>
+                                <p class="text-xs text-gray-500">Sans conservateurs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-2 bg-white p-2 rounded-lg shadow-md z-6">
+                        <div class="flex items-center">
+                            <div class="bg-rose-100 p-2 rounded-full mr-2"> <i class="fas fa-heart text-rose-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Artisanal</p>
+                                <p class="text-xs text-gray-500">Jus délicieux</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="jus">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold title-font mb-4">Nos Catégories Phares</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Explorez nos gammes de produits transformés avec des ingrédients de qualité</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-66">
+                    <img src="Images/hibiscus.webp" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Hibiscus">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Hibiscus</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-66">
+                    <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Oranges">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Oranges</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-66">
+                    <img src="Images/MadeJus.png" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Dattes">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Jus de made</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative overflow-hidden rounded-xl shadow-md h-66">
+                    <img src="Images/PDS_jus.png" 
+                         class="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+                         alt="Mélanges">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <h3 class="text-white font-bold text-xl">Jus de pain de singe</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold title-font mb-4">Nouveau produit dans notre collection fruité</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Découvrez nos meilleures ventes et nouveautés</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="Images/confitureHibiscus.webp" 
+                             class="w-full h-64 object-cover" 
+                             alt="Confiture d'hibiscus">
+                        <div class="absolute top-3 left-3 bg-rose-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            Nouveau
+                        </div>
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Confiture d'Hibiscus</h3>
+                                <p class="text-gray-500 text-sm">250g</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">1000 FCFA</span>
+                            <button class="bg-blue-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b" 
+                             class="w-full h-64 object-cover" 
+                             alt="Jus d'orange et hibiscus">
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Jus Orange-Hibiscus</h3>
+                                <p class="text-gray-500 text-sm">1L</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">1000 FCFA</span>
+                            <button class="bg-blue-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="Images/confitureMade.jpeg" 
+                             class="w-full h-64 object-cover" 
+                             alt="made">
+                        <div class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            Nouveau
+                        </div>
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Confiture made</h3>
+                                <p class="text-gray-500 text-sm">250g</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">1000 FCA</span>
+                            <button class="bg-blue-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="Images/Thé_hibiscus.jpeg" 
+                             class="w-full h-64 object-cover" 
+                             alt="Thé d'hibiscus">
+                        <button class="absolute top-3 right-3 bg-white/90 text-rose-700 p-2 rounded-full hover:bg-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">Thé d'hibiscus</h3>
+                                <p class="text-gray-500 text-sm">Une tasse</p>
+                            </div>
+                            <div class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-rose-700">100 FCFA</span>
+                            <button class="bg-blue-100 text-rose-700 p-2 rounded-full hover:bg-rose-200 transition">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="Wakkilaré_Savon.html" class="inline-flex items-center px-6 py-3 border border-blue-700 text-blue-700 rounded-full hover:bg-rose-50 transition">
+                    Voir Wakkiléra Savon <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h4>Contact</h4>
+      <p><i class="fab fa-map-marker-alt"></i> 123 Rue Abbattoir, Tambacounda, Sénégal</p>
+      <p><i class="fab fa-phone-alt"></i> +212 773 45 67 89</p>
+      <p><i class="fab fa-envelope"></i> AGD@gmail.com</p>
+      <p><i class="fab fa-globe"></i> www.AGD.com</p>
+    </div>
+
+    <div class="footer-section social-media">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="notre_histo.html">À propos</a></li>
+        <li><a href="legumes.html">Legumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="Wakkilaré_jus.html">Jus</a></li>
+        <li><a href="Wakkilaré_Savon.html">Savon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copyright ; 2025 AGD. Tous droits réservés.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -21,15 +21,14 @@
         }
 
         header{
-     position: fixed;
+     background-color: white;        
      height: 100px;
      width: 100%;
-     background: transparent;
      transition: all 0.5s ease-out;
      text-align: center;
-            display: flex;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000; 
+     display: flex;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     z-index: 1000; 
                   
         }
         header nav ul {
@@ -149,6 +148,13 @@
             border-top-left-radius: 0.5rem;
             border-top-right-radius: 0.5rem;
         }
+        .texte{
+            padding: 10px;
+        }
+        .texte:hover{
+         background-color:#bfdbfe;
+        }
+
         .commander{
     border:1px solid wheat;
     background-color:#007bff;
@@ -216,7 +222,7 @@
 
     </style>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-100">
+<body class="bg-blue-100 text-gray-800">
     <header>
         <div class="logo">
           <img src="Images/logo-nature.avif" alt="logo"> 
@@ -266,21 +272,21 @@
   
 
 
-    <main class="flex-grow container mx-auto px-5 py-8 shadow-lg">
-        <h1 class="text-3xl font-bold mb-6 text-center mt-24">Nos Poissons d'Aquaponie</h1>
+    <main class="flex-grow container mx-auto px-5  shadow-lg">
+        <h1 class="text-3xl font-bold mb-6 text-center  text-white">Nos Poissons d'Aquaponie</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <article class="poisson-card">
                 <img src="Images/tilapia1.avif" alt="Tilapia" class="poisson-image">
-                <div class="p-4">
+                <div class="texte">
                     <h2 class="text-xl font-semibold mb-2">Tilapia</h2>
-                    <p class="text-gray-600 mb-4">Faites le choix de la fraîcheur et de l’écologie avec notre tilapia, élevé en aquaponie, sans produits chimiques ni antibiotiques.</p>
+                    <p class="text-gray-600 mb-4">Faites le choix de la fraîcheur et de l’écologie avec notre tilapia, élevé en aquaponie, sans produits chimiques.</p>
                     <a href="" class="commander">Commander</a> 
                 </div>
             </article>
            
             <article class="poisson-card">
                 <img src="Images/truite1.jpg" alt="Truite" class="poisson-image">
-                <div class="p-4">
+                <div class="texte">
                     <h2 class="text-xl font-semibold mb-2">Truite</h2>
                     <p class="text-gray-600 mb-4">Goûtez à la fraîcheur ultime avec nos truites élevées en aquaponie, récoltées sur commande.</p> <br>
                     <a href="" class="commander">Commander</a> 
@@ -289,7 +295,7 @@
 
             <article class="poisson-card">
                 <img src="Images/carpe.avif" alt="Carpe" class="poisson-image">
-                <div class="p-4">
+                <div class="texte">
                     <h2 class="text-xl font-semibold mb-2">Carpe</h2>
                     <p class="text-gray-600 mb-4"> poisson frais et élevés dans des conditions optimales.</p>  <br>
                     <a href="" class="commander">Commander</a> 

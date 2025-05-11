@@ -24,7 +24,6 @@
 }
   
 header{
-     position: fixed;
      height: 100px;
      width: 100%;
      background: transparent;
@@ -45,48 +44,7 @@ header{
           align-items: center;
         }
         
-    /* Navbar 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      /*align-items: center; *
-      max-width: 1200px;
-      width: 100%;
-    }
-    .logo{
-      margin-left:5px ;
-    }
-    .navbar img {  
-      width: 350px;
-     max-width: 300px;  
-     object-fit: contain; /* l'image garde ses proportions *
-    }
-    /* Cacher le menu toggle sur les grands écrans *
-    .navbar input#menu-toggler {
-      display: none;
-    }
-    
-    /* Menu hamburger (icon) *
-    .navbar #hamburger-btn {
-      display: none; /* Cacher le bouton hamburger sur grand écran *
-      cursor: pointer;
-    }
-    /* Liens du menu *
-    .navbar .all-links {
-      display: flex;
-      align-items: center;
-      margin-right: 40px;
-    }
-    .navbar .all-links li {
-      list-style: none;
-      margin-left: 40px;
-    }
-    .navbar .all-links a {
-      text-decoration: none;
-      color: black;
-      font-size: 1.1rem;
-      } 
-      */
+   
       header nav ul {
            
            height: 100%;
@@ -395,56 +353,82 @@ p {
 
 
   /* footer */
-  footer{
-    width: 100%;
-    
-    background-color:rgb(88, 156, 224);
-    color: white; 
-    display:flex;
-            padding-top:50px;
-            font-size:15px;
-            align-content: center;
-            margin-top: 80px;
-        }
+          .footer {
+  background-color: #4571d1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  height: 30%;
+}
 
-        footer div{
-        padding:24px;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    }
-        
-    .net a{
-        margin :17px;
-        height:100px;
-        font-size:20px;
-        color: white;
-    }
-    .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a:hover {
+  text-decoration: underline;
 }
 
 .social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    margin-left: 2px;
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
 }
-
-.social-icons .fa-instagram { background-color: #DD2A7B; }
-.social-icons .fa-twitter { background-color: #1DA1F2; }
-.social-icons .fa-facebook-f { background-color: #3b5998; }
-.social-icons .fa-youtube { background-color: #FF0000; }
 
 .social-icons a:hover {
-    transform: scale(1.1);
+  color: #ffffff;
+  transform: scale(1.1);
 }
+.social-icons .fa-facebook{background-color: #3b5998; }
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter{background-color: #1DA1F2; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.footer-bottom {
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding-top: 15px;
+}
+
 
   </style>
   <body>
@@ -607,42 +591,42 @@ p {
 
 
 
-  <footer>
-    <div class="first">          
-        <img src="logo.png" alt="logo_car" class="logocar">
-    </div>
-    <div class="second">
-        <h2 class="text-lg text-white-500"> Acteurs: </h2>
-        <p style="color: white;"> AMIDI <br>
-            B.INTER <br>
-            JAM ALLO GROUPE <br>
-            SERENITY TRAVEL AGENCY
-        </p>
-    </div>
-    <div class="third">
-        <h2 class="text-lg"> Réseaux sociaux: </h2>
-            <p class="net">
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
-                    <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
-                    <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
-                    <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
-                  </div>
-        
-            </p>
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h4>Contact</h4>
+      <p><i class="fab fa-map-marker-alt"></i> 123 Rue Abbattoir, Tambacounda, Sénégal</p>
+      <p><i class="fab fa-phone-alt"></i> +212 773 45 67 89</p>
+      <p><i class="fab fa-envelope"></i> AGD@gmail.com</p>
+      <p><i class="fab fa-globe"></i> www.AGD.com</p>
     </div>
 
-    <div class="fourth"> 
-        <h2 class="text-lg text-white-500">Contacts: </h2>
-       <p style="color:white";>  +212 555-0000 <br>
-            Email: AquapoAGD@gmail.com<br> 
-           site web: www.race.com
-            </p>
+    <div class="footer-section social-media">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
-    <div class="fifth"> <address class="text-lg"> Adresse</address>
-        <p style="color:white";> Tambacounda, Senegal </p><br>
-     </div>
-</footer> 
+
+    <div class="footer-section links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="notre_histo.html">À propos</a></li>
+        <li><a href="legumes.html">Legumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="Wakkilaré_jus.html">Jus</a></li>
+        <li><a href="Wakkilaré_Savon.html">Savon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p style="text-align: center; color: white;">&copyleft ; 2025 AGD. Tous droits réservés.</p>
+  </div>
+</footer>
+
   
 
 

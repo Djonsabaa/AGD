@@ -19,12 +19,14 @@
         body{
             /*background: linear-gradient(135deg, rgba(0, 128, 128, 0.6), rgba(209, 194, 194, 0.8));*/
             font-family: 'Times New Roman', Times, serif;
+           
         }
  header{
-     position: fixed;
+    background-color: white;
+     color: black;
      height: 100px;
      width: 100%;
-     background: transparent;
+     
      transition: all 0.5s ease-out;
      text-align: center;
             display: flex;
@@ -33,7 +35,7 @@
                   
         }
         header nav ul {
-           
+           color: black;
             height: 100%;
             width: 100%;
             list-style-type: none;
@@ -85,7 +87,9 @@
             color: #007bff;
             margin-top: 10px;
             margin-right: 46%;
-            
+        }
+        .descrip, h1{
+            font-size: 20;
         }
         
         .container{
@@ -261,7 +265,6 @@
 
 
 section{
-   margin-top: 50px;
    text-align: center;
     }
 
@@ -294,56 +297,79 @@ section{
             animation: pulse 2s infinite;
         }
 
-footer{
-            border-bottom-color: white;
-            background-color:rgb(88, 156, 224);
-            color:white;
-            display:flex;
-            padding-top:50px;
-            font-size:15px;
-            align-content: center;
-            margin-top: 80px;
-        }
-    footer div{
-        padding:24px;
+        .footer {
+  background-color: #4571d1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    }
-    
-        
-    .net a{
-        margin :17px;
-        
-        height:100px;
-        font-size:20px;
-        
-    }
-    .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a:hover {
+  text-decoration: underline;
 }
 
 .social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    margin-left: 2px;
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
 }
-
-.social-icons .fa-instagram { background-color: #DD2A7B; }
-.social-icons .fa-twitter { background-color: #1DA1F2; }
-.social-icons .fa-facebook-f { background-color: #3b5998; }
-.social-icons .fa-youtube { background-color: #FF0000; }
 
 .social-icons a:hover {
-    transform: scale(1.1);
+  color: #ffffff;
+  transform: scale(1.1);
 }
+.social-icons .fa-facebook{background-color: #3b5998; }
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter{background-color: #1DA1F2; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding-top: 15px;
+}
+
 
     /*phrase d accroche */
     .hero {
@@ -418,7 +444,7 @@ footer{
 </head>
 
 <body>
-    <header>
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
       <div class="logo">
         <img src="Images/logo-nature.avif" alt="logo"> 
         <h2 class="clignotant">AGD </h2>
@@ -467,13 +493,12 @@ footer{
 
 <section class="hero">
     <div class="hero-content">
-      <p>Bienvenue dans le monde de l'aquaponie</p>
+      <p>Bienvenue dans cet espace vert . </p>
       <p>Des solutions durables pour une agriculture moderne</p>
-      <p>Découvrez notre mission et notre engagement envers un avenir durable.</p>
+      <p>Découvrez notre mission et notre engagement envers un avenir meilleur.</p>
     </div>
   </section>
-   <br> <br>
-
+   <br> 
 <!-- <p> AGD organise des ventes, des foires aux planttes et auxespèces rare à travers le continent. 
 Nous transformons sur place nos produits et nous les commercialisons à nos différents clients. </p> -->
 
@@ -497,7 +522,7 @@ Nous transformons sur place nos produits et nous les commercialisons à nos diff
           <div class="slide-content">
               <h2>Nos Solutions</h2>
               <p>Produire des légumes, des plantes et des poissons grâce à l'aquaponie.</p>
-              <a href="#" class="btn">Découvrir nos produits</a>
+              <a href="legumes.html" class="btn">Découvrir nos produits</a>
           </div>
       </div>
       
@@ -506,7 +531,7 @@ Nous transformons sur place nos produits et nous les commercialisons à nos diff
           <div class="slide-content">
               <h2>Engagement</h2>
               <p>Nous travaillons avec passion pour bâtir un monde plus vert.</p>
-              <a href="#" class="btn">Rejoignez-nous</a>
+              <a href="plantes.html" class="btn">Rejoignez-nous</a>
           </div>
       </div>
   </div>
@@ -632,43 +657,41 @@ utilisant des déchets organiques transformés en engrais naturel.
 </section>
 
 
-<footer>
-    <div class="first">          
-        <img src="logo.png" alt="logo_car" class="logocar">
-    </div>
-    <div class="second">
-        <h2 class="text-lg"> Acteurs: </h2>
-        <p > AMIDI <br>
-            B.INTER <br>
-            JAM ALLO GROUPE <br>
-            SERENITY TRAVEL AGENCY
-        </p>
-    </div>
-    <div class="third">
-        <h2 class="text-lg "> Réseaux sociaux: </h2>
-            <p class="net">
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
-                    <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
-                    <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
-                    <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
-                  </div>
-        
-            </p>
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h4>Contact</h4>
+      <p><i class="fab fa-map-marker-alt"></i> 123 Rue Abbattoir, Tambacounda, Sénégal</p>
+      <p><i class="fab fa-phone-alt"></i> +212 773 45 67 89</p>
+      <p><i class="fab fa-envelope"></i> AGD@gmail.com</p>
+      <p><i class="fab fa-globe"></i> www.AGD.com</p>
     </div>
 
-    <div class="fourth"> 
-        <h2 class="text-lg">Contacts: </h2>
-       <p>  +212 555-0000 <br>
-            Email:<br> </p>
-            <p>
-           site web: www.race.com
-            </p>
+    <div class="footer-section social-media">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
-    <div class="fifth"> <address class="text-lg"> Adresse</address>
-        <p> Tambacounda, Senegal </p><br>
-</footer> 
 
+    <div class="footer-section links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="notre_histo.html">À propos</a></li>
+        <li><a href="legumes.html">Legumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="Wakkilaré_jus.html">Jus</a></li>
+        <li><a href="Wakkilaré_Savon.html">Savon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copyright ; 2025 AGD. Tous droits réservés.</p>
+  </div>
+</footer>
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
   
