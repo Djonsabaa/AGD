@@ -1,3 +1,869 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <title>Pépinière Verte </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .slider-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 10px;
+        }
+
+        .slide {
+            flex: 0 0 calc(100% / 3);
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 75%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .slide h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .slide p {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+    
+        .slide .price {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2563eb; 
+    background-color: #e0f2fe; 
+    padding: 4px 12px;
+    border-radius: 20px;
+    
+
+}
+@media (max-width: 768px) {
+    .slide .price {
+        font-size: 1rem;
+        padding: 3px 10px;
+    }
+}
+        .slider-btn {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+        }
+
+        #prev { left: 5px; }
+        #next { right: 5px; }
+
+        .product-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .product-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+        }
+        .cart-total {
+            font-weight: 700;
+            color: #16a34a;
+            font-size: 1.2em;
+        }
+        .add-to-cart {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+         .cart-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #16a34a;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        .cart-button:hover {
+            transform: scale(1.1);
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #dc2626;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+
+        footer{
+            border-bottom-color: white;
+            background-color:rgb(88, 156, 224);
+            color:white;
+            display:flex;
+            padding-top:50px;
+            font-size:15px;
+            align-content: center;
+            margin-top: 80px;
+        }
+    footer div{
+        padding:24px;
+
+    }
+    
+        
+    .net a{
+        margin :17px;
+        
+        height:100px;
+        font-size:20px;
+        
+    }
+    .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    margin-left: 2px;
+}
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter { background-color: #1DA1F2; }
+.social-icons .fa-facebook-f { background-color: #3b5998; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+    </style>
+</head>
+<body class="bg-blue-100 text-gray-800">
+
+    <section class="hero bg-blue-400 text-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Bienvenue à la Pépinière Verte Vie</h2>
+            <p class="text-xl mb-8">Découvrez notre large sélection de plantes pour embellir votre espace de vie</p>
+            <a href="#categories" class="bg-white text-blue-400 py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-100 transition duration-300">Explorer nos plantes</a>
+        </div>
+    </section>
+
+    <section class="py-16 text-center">
+        <h2 class="text-3xl font-bold">Nos Plantes</h2>
+    </section>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300  ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/bambou.png" alt="bambou" onclick="openProductModal('bambou')" style="cursor: pointer;" 
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                
+                <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3  class="text-lg font-semibold text-gray-800"> Bambou </h3>
+                <p class="text-sm text-gray-600 mt-1"> Variétés de bambou pour une ambiance zen.</p>
+                <span class="price"> Prix: 5O Dhs </span>   
+                
+            </div>
+            </div>
+
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/olivier.png" alt="olivier" onclick="openProductModal('olivier')" style="cursor: pointer;"
+                class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" >
+               <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Olivier</h3>
+                <p>Plantes fraîches pour un potager sain.</p> 
+                <span class="price"> Prix: 6O Dhs</span>
+            </div>
+            </div>
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/plantes_d_ornement.png" alt="fleur_ornementale" onclick="openProductModal('fleur_ornementale')" style="cursor: pointer;" 
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                    <div class="p-4 group-hover:bg-white transition duration-300"> 
+                     <h3>Pantes d'ornementales</h3>
+                <p> Fleurs décoratives pour embellir vos jardins.</p>
+                <span class="price">Prix: 4O Dhs</span>
+            </div>
+            </div>
+
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/fleurs_deco.png" alt="fleur_déco" onclick="openProductModal('fleur_déco')" style="cursor: pointer;"
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                <div class="p-4 group-hover:bg-white transition duration-300"> 
+                     <h3>Fleurs Déco</h3>
+                <p> Fleurs décoratives pour embellir vos jardins.</p> 
+                <span class="price">Prix: 5O Dhs</span> 
+            </div>
+            </div>
+
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/haie-buisson.png" alt="haie_buisson" onclick="openProductModal('haie_buisson')" style="cursor: pointer;"
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Haie Buisson</h3>
+                <p>Créez une clôture naturelle avec nos haies.</p> 
+               <span class="price">Prix: 5O Dhs</span>
+            </div>
+           </div>
+           
+        </div>
+        <button id="prev" class="slider-btn">&#10094;</button>
+        <button id="next" class="slider-btn">&#10095;</button>
+    </div>
+
+    <section class="py-16 text-center">
+        <h2 class="text-3xl font-bold">Nos semences</h2>
+    </section>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/acacia.png" alt="acacia" onclick="openProductModal('acacia')" style="cursor: pointer;"
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+               <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Acacia</h3>
+                <p>.</p> 
+                <span class="price">Prix: 3O Dhs</span>
+                </div> 
+            </div>
+
+              
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/Moringa oleifera.png" alt="moringa" onclick="openProductModal('moringa')" style="cursor: pointer;"
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Moringa oleifera</h3>
+                <p> </p> 
+              <span class="price">Prix: 5O Dhs</span>
+            </div>
+             </div>
+
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/plantes-goyave.png" alt="goyave" onclick="openProductModal('goyave')" style="cursor: pointer;"
+                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Goyave</h3>
+                 <p> </p>  
+               <span class="price">Prix: 6O Dhs</span>
+            </div>
+            </div>
+             
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/plante_aloe vera.jpg" alt="aloe_vera" onclick="openProductModal('aloe_vera')" style="cursor: pointer;"
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+               <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Aloe vera</h3>
+                <p></p>
+                <span class="price">Prix: 6O Dhs</span>
+            </div>
+            </div>
+
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/laurier-rose.avif" alt="laurier_rose" onclick="openProductModal('laurier_rose')" style="cursor: pointer;"
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+               <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Laurier-rose</h3>
+                <p>.</p>
+                <span class="price">Prix: 6O Dhs</span>
+            </div>
+            </div>
+
+            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/Eucalyptus_Alba.png" alt="eucalyptus" onclick="openProductModal('eucalyptus')" style="cursor: pointer;"
+                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                <div class="p-4 group-hover:bg-white transition duration-300"> 
+                <h3>Eucalyptus</h3>
+                <p>.</p>
+                <span class="price">Prix: 5O Dhs</span>
+            </div>
+            </div>
+           
+           
+            <!-- <div class="slide">
+                <img src="Images/bg.avif" alt="Background">
+                <h3>Jardin Verdoyant</h3>
+                <p>Un espace vert pour un bien-être optimal.</p>
+            </div> -->
+        </div>
+        <button id="prev" class="slider-btn">&#10094;</button>
+        <button id="next" class="slider-btn">&#10095;</button>
+    </div>
+
+    <section id="contact" class="bg-blue-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
+            <form class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-semibold mb-2">Nom</label>
+                    <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Modal Produit -->
+    <div id="productModal" class="product-modal">
+        <div class="modal-content w-full max-w-2xl">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="productTitle" class="text-2xl font-bold text-gray-800"></h2>
+                    <button onclick="closeProductModal()" class="text-gray-500 hover:text-gray-700 text-3xl">&times;</button>
+                </div>
+                <div id="productImage" class="mb-6 rounded-lg overflow-hidden">
+                    <img id="modalImage" class="w-full h-64 object-cover" src="" alt="">
+                </div>
+                 <div id="productDescription" class="text-gray-600 mb-6 leading-relaxed"></div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex items-center gap-4 mb-4 sm:mb-0">
+                        <button id="decreaseQty" onclick="changeQuantity(-1)" class="bg-gray-200 hover:bg-gray-300 w-10 h-10 rounded-full flex items-center justify-center transition-colors">-</button>
+                        <span id="quantity" class="text-xl font-semibold w-12 text-center">1</span>
+                        <button id="increaseQty" onclick="changeQuantity(1)" class="bg-gray-200 hover:bg-gray-300 w-10 h-10 rounded-full flex items-center justify-center transition-colors">+</button>
+                    </div>
+                    <button id="addToCartBtn" class="add-to-cart flex-1">
+                        <span id="cartButtonText">Ajouter au panier</span>
+                        <span id="priceDisplay" class="ml-2"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Panier -->
+    <div id="cartModal" class="product-modal">
+        <div class="modal-content w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">Mon Panier</h2>
+                    <button onclick="closeCartModal()" class="text-gray-500 hover:text-gray-700 text-3xl">&times;</button>
+                </div>
+                <div id="cartItems" class="space-y-4 max-h-60 overflow-y-auto">
+                    <!-- Les articles du panier seront ajoutés ici -->
+                </div>
+                <div id="emptyCartMessage" class="text-center py-8 text-gray-500">
+                    Votre panier est vide
+                </div>
+                <div id="cartTotal" class="mt-6 pt-4 border-t border-gray-200">
+                    <div class="flex justify-between text-lg">
+                        <span>Total:</span>
+                         <span id="totalAmount" class="cart-total">0,00 Dhs</span>
+                    </div>
+                </div>
+
+                 <input id="nomClient" type="text" placeholder="Votre nom" class="border p-2 w-full mt-4">
+                <button onclick="validateOrder()" class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                    Valider la commande
+                </button>
+
+               
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bouton Panier -->
+    <div id="cartButton" class="cart-button" onclick="openCartModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9" />
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+    </div>
+
+    <script>
+          // Données des produits
+        const products = {
+            bambou: {
+                name: "Bambou",
+                price: 50.00,
+                image:"Images/bambou.png",
+                description: " Différentes variétés de bambou pour une ambiance zen."
+                
+            },
+            olivier: {
+                name: "Olivier",
+                price: 60.0,
+                image:"Images/olivier.png",
+                description: "Plantes fraîches pour un potager sain."
+            },
+
+            fleur_ornementale: {
+                name: "Pantes d'ornementales",
+                price: 40.00,
+                image:"Images/plantes_d_ornement.png",
+                description: "Ajoutez de la couleur avec nos fleurs décoratives pour embellir vos jardins."
+            },
+
+             fleur_déco: {
+                name: "Fleurs Déco",           
+                price: 50.00,
+                image:"Images/fleurs_deco.png",
+                description: "Ajoutez de la couleur avec nos fleurs décoratives pour embellir vos jardins."
+            },
+
+            haie_buisson: {
+                name: "Haie Buisson",           
+                price: 50.00,
+                image:"Images/haie-buisson.png",
+                description: "Créez une clôture naturelle avec nos haies."
+            },
+
+             acacia: {
+                name: "acacia",           
+                price: 30.00,
+                image:"Images/acacia.png",
+                description: "Plante pour le bien-etre de la peau."
+            },
+            
+          moringa: {
+                name: "Moringa oleifera",           
+                price: 8.0,
+                image:"Images/Moringa oleifera.png",
+                description: "Plante moringa."
+            },
+
+          goyave: {
+                name: "Goyave",           
+                price: 60.00,
+                image:"Images/plantes-goyave.png",
+                description: "plante goyave."
+            },
+
+              aloe_vera: {
+                name: "Aloe vera",           
+                price: 40.00,
+                image:"Images/plante_aloe vera.jpg",
+                description: "plante aloe vera."
+            },
+
+            laurier_rose: {
+                name: "Laurier-rose",           
+                price: 50.00,
+                image:"Images/laurier-rose.avif",
+                description: "plante laurier-rose."
+            },
+
+            eucalyptus: {
+                name: "Eucalyptus",           
+                price: 30.00,
+                image:"Images/Eucalyptus_Alba.png",
+                description: "plante Eucalyptus_Alba."
+            },
+   
+        };
+
+          // Gestion du panier
+        let cart = [];
+        let currentProduct = null;
+        let quantity = 1;
+
+           // Ouvrir la modal produit
+        function openProductModal(productId) {
+            currentProduct = products[productId];
+            document.getElementById('productTitle').textContent = currentProduct.name;
+            document.getElementById('modalImage').src = currentProduct.image;
+            document.getElementById('modalImage').alt = currentProduct.name;
+            document.getElementById('productDescription').textContent = currentProduct.description;
+            quantity = 1;
+            updateQuantityDisplay();
+                        updatePriceDisplay();
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        // Fermer la modal produit
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+
+         // Changer la quantité
+        function changeQuantity(delta) {
+            quantity = Math.max(1, quantity + delta);
+            updateQuantityDisplay();
+            updatePriceDisplay();
+        }
+
+        // Mettre à jour l'affichage de la quantité
+        function updateQuantityDisplay() {
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        // Mettre à jour l'affichage du prix
+        function updatePriceDisplay() {
+            const totalPrice = currentProduct.price * quantity;
+            document.getElementById('priceDisplay').textContent = `${totalPrice.toFixed(2)} Dhs`;
+        }
+         
+        // Ajouter au panier
+        document.getElementById('addToCartBtn').addEventListener('click', function() {
+            if (currentProduct) {
+                const existingItem = cart.find(item => item.id === currentProduct.name);
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    cart.push({
+                        id: currentProduct.name,
+                        name: currentProduct.name,
+                        price: currentProduct.price,
+                        quantity: quantity,
+                        image: currentProduct.image
+                    });
+                }
+
+                 updateCartCount();
+                closeProductModal();
+                showNotification(`${currentProduct.name} ajouté au panier !`);
+            }
+        });
+
+        // Mettre à jour le compteur du panier
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        // Ouvrir le panier
+        function openCartModal() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const emptyCartMessage = document.getElementById('emptyCartMessage');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.style.display = 'none';
+                emptyCartMessage.style.display = 'block';
+            } else {
+                cartItemsContainer.style.display = 'block';
+                emptyCartMessage.style.display = 'none';
+
+                cartItemsContainer.innerHTML = '';
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item flex items-center gap-3';
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-800">${item.name}</h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeCartItemQuantity('${item.name}', -1)" class="text-gray-500 hover:text-gray-700">−</button>
+                                <span class="text-sm">${item.quantity}</span>
+                                <button onclick="changeCartItemQuantity('${item.name}', 1)" class="text-gray-500 hover:text-gray-700">+</button>
+                                <span class="text-sm text-gray-600">${(item.price * item.quantity).toFixed(2)} €</span>
+                            </div>
+                        </div>
+
+                           <button onclick="removeFromCart('${item.name}')" class="text-red-500 hover:text-red-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+            }
+            
+            updateTotal();
+            document.getElementById('cartModal').classList.add('active');
+        }
+
+        // Fermer le panier
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.remove('active');
+        }
+
+        // Changer la quantité dans le panier
+        function changeCartItemQuantity(name, delta) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + delta);
+                if (item.quantity === 0) {
+                    removeFromCart(name);
+                                    } else {
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        // Supprimer du panier
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartDisplay();
+        }
+
+        // Mettre à jour l'affichage du panier
+        function updateCartDisplay() {
+            updateCartCount();
+            if (document.getElementById('cartModal').classList.contains('active')) {
+                openCartModal();
+            }
+        }
+
+        // Mettre à jour le total
+        function updateTotal() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('totalAmount').textContent = `${total.toFixed(2)} Dhs`;
+        }
+
+        // Valider la commande
+        function validateOrder() {
+    console.log("validateOrder appelée");
+    if (cart.length === 0) {
+        showNotification("Votre panier est vide !");
+        return;
+    }
+    //const nomClient = document.getElementById('nomClient').value;
+    const nomClient = document.getElementById("nomClient").value.trim();
+    if (!nomClient) {
+    alert("Veuillez entrer votre nom.");
+    return;
+}
+
+
+    // Envoie la commande vers le backend
+    fetch('http://localhost:4000/api/commandes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nomClient: nomClient,
+            panier: cart.map(item => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price
+        }))
+             
+            })  // envoie les produits
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log("Réponse du serveur :", data);
+    if (data.message.includes("succès")) {
+        showNotification("Commande enregistrée avec succès !");
+        cart.length = 0; // vider panier
+        updateCartDisplay();
+        closeCartModal();
+    } else {
+        showNotification("Erreur lors de la commande !");
+    }
+})
+.catch(error => {
+    console.error("Erreur lors de la requête :", error);
+    showNotification("Une erreur est survenue.");
+});
+   }
+   
+
+        // Afficher une notification
+        function showNotification(message) {
+            // Créer une notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            // Animer l'entrée
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+         // Fermer les modals en cliquant en dehors
+        window.addEventListener('click', function(e) {
+            const productModal = document.getElementById('productModal');
+            const cartModal = document.getElementById('cartModal');
+            if (e.target === productModal) {
+                closeProductModal();
+            }
+            if (e.target === cartModal) {
+                closeCartModal();
+            }
+        });
+
+        // Initialisation
+        updateCartCount();
+    </script>
+    <footer>
+        
+        <div class="second ml-8">
+            <h2 class="text-lg"> Acteurs: </h2>
+            <p > AMIDI <br>
+                B.INTER <br>
+                JAM ALLO GROUPE <br>
+                SERENITY TRAVEL AGENCY
+            </p>
+        </div>
+        <div class="third">
+            <h2 class="text-lg "> Réseaux sociaux: </h2>
+                <p class="net">
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
+                        <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
+                        <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
+                        <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
+                      </div>
+            
+                </p>
+        </div>
+    
+        <div class="fourth"> 
+            <h2 class="text-lg">Contacts: </h2>
+           <p>  +212 555-0000 <br>
+                Email:<br> </p>
+                <p>
+               site web: www.race.com
+                </p>
+        </div>
+        <div class="fifth"> <address class="text-lg"> Adresse</address>
+            <p> Tambacounda, Senegal </p><br>
+    </footer> 
+    
+    <script>
+        document.querySelectorAll('.slider-container').forEach(container => {
+            const slider = container.querySelector('.slider');
+            const slides = container.querySelectorAll('.slide');
+            const prevBtn = container.querySelector('#prev');
+            const nextBtn = container.querySelector('#next');
+            
+            let index = 0;
+            const slidesToShow = 3;
+            const slideWidth = slides[0].offsetWidth + 10; // Largeur d'un slide avec l'espace
+        
+            function showSlide(i) {
+                if (i > slides.length - slidesToShow) index = 0;
+                if (i < 0) index = slides.length - slidesToShow;
+                slider.style.transform = `translateX(-${index * slideWidth}px)`;
+            }
+        
+            nextBtn.addEventListener('click', () => {
+                index += 1;
+                if (index > slides.length - slidesToShow) index = 0;
+                showSlide(index);
+            });
+        
+            prevBtn.addEventListener('click', () => {
+                index -= 1;
+                if (index < 0) index = slides.length - slidesToShow;
+                showSlide(index);
+            });
+        });
+        
+    </script>
+</body>
+</html>
+
+
 <!-- <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -167,318 +1033,3 @@
 </html> -->
 
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" 
-    referrerpolicy="no-referrer" />
-    <title>Pépinière Verte </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .slider-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            gap: 10px;
-        }
-
-        .slide {
-            flex: 0 0 calc(100% / 3);
-            transition: 0.5s;
-            text-align: center;
-        }
-
-        .slider img {
-            width: 100%;
-            height: 75%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .slide h3 {
-            margin-top: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .slide p {
-            font-size: 1rem;
-            color: #4a5568;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 40%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 50%;
-        }
-
-        #prev { left: 5px; }
-        #next { right: 5px; }
-
-        footer{
-            border-bottom-color: white;
-            background-color:rgb(88, 156, 224);
-            color:white;
-            display:flex;
-            padding-top:50px;
-            font-size:15px;
-            align-content: center;
-            margin-top: 80px;
-        }
-    footer div{
-        padding:24px;
-
-    }
-    
-        
-    .net a{
-        margin :17px;
-        
-        height:100px;
-        font-size:20px;
-        
-    }
-    .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    margin-left: 2px;
-}
-.social-icons .fa-instagram { background-color: #DD2A7B; }
-.social-icons .fa-twitter { background-color: #1DA1F2; }
-.social-icons .fa-facebook-f { background-color: #3b5998; }
-.social-icons .fa-youtube { background-color: #FF0000; }
-
-.social-icons a:hover {
-    transform: scale(1.1);
-}
-    </style>
-</head>
-<body class="bg-blue-100 text-gray-800">
-
-    <section class="hero bg-blue-400 text-white py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">Bienvenue à la Pépinière Verte Vie</h2>
-            <p class="text-xl mb-8">Découvrez notre large sélection de plantes pour embellir votre espace de vie</p>
-            <a href="#categories" class="bg-white text-blue-400 py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-100 transition duration-300">Explorer nos plantes</a>
-        </div>
-    </section>
-
-    <section class="py-16 text-center">
-        <h2 class="text-3xl font-bold">Nos Plantes</h2>
-    </section>
-
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="Images/bambou.png" alt="Bambou">
-                <h3>Bambou</h3>
-                <p>Différentes variétés de bambou pour une ambiance zen.</p>
-            </div>
-
-            <div class="slide">
-                <img src="Images/olivier.png" alt="olive">
-                <h3>Olivier</h3>
-                <p>Plantes fraîches pour un potager sain.</p>
-            </div>
-            <div class="slide">
-                <img src="Images/plantes_d_ornement.png" alt="Fleurs déco">
-                <h3>Pantes d'ornementales</h3>
-                <p>Ajoutez de la couleur avec nos fleurs décoratives pour embellir vos jardins.</p>
-            </div>
-
-            <div class="slide">
-                <img src="Images/fleurs_deco.png" alt="Fleurs déco">
-                <h3>Fleurs Déco</h3>
-                <p>Ajoutez de la couleur avec nos fleurs décoratives pour embellir vos jardins.</p>
-            </div>
-            <div class="slide">
-                <img src="Images/haie-buisson.png" alt="Haie buisson">
-                <h3>Haie Buisson</h3>
-                <p>Créez une clôture naturelle avec nos haies.</p>
-            </div>
-           
-           
-        </div>
-        <button id="prev" class="slider-btn">&#10094;</button>
-        <button id="next" class="slider-btn">&#10095;</button>
-    </div>
-
-    <section class="py-16 text-center">
-        <h2 class="text-3xl font-bold">Nos semences</h2>
-    </section>
-
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="Images/acacia.png" alt="acacia" >
-                <h3>Acacia</h3>
-                <p>.</p>
-            </div>
-
-              
-            <div class="slide">
-                <img src="Images/Moringa oleifera.png" alt="moringa">
-                <h3>moringa oleifera</h3>
-                <p>.</p>
-            </div>
-            <div class="slide">
-                <img src="Images/plantes-goyave.png" alt="Goyave">
-                <h3>Goyave</h3>
-                <p.</p>
-            </div>
-             
-            <div class="slide">
-                <img src="Images/plante_aloe vera.jpg" alt="aloe vera">
-                <h3>Aloe vera</h3>
-                <p></p>
-            </div>
-            <div class="slide">
-                <img src="Images/laurier-rose.avif" alt="Laurier-rose">
-                <h3>Laurier-rose</h3>
-                <p>.</p>
-            </div>
-            <div class="slide">
-                <img src="Images/Eucalyptus_Alba.png" alt="Eucalyptus">
-                <h3>Eucalyptus</h3>
-                <p>.</p>
-            </div>
-           
-           
-            <!-- <div class="slide">
-                <img src="Images/bg.avif" alt="Background">
-                <h3>Jardin Verdoyant</h3>
-                <p>Un espace vert pour un bien-être optimal.</p>
-            </div> -->
-        </div>
-        <button id="prev" class="slider-btn">&#10094;</button>
-        <button id="next" class="slider-btn">&#10095;</button>
-    </div>
-
-    <section id="contact" class="bg-blue-100 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
-            <form class="max-w-lg mx-auto">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 font-semibold mb-2">Nom</label>
-                    <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">Envoyer</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="first">          
-            <img src="logo.png" alt="logo_car" class="logocar">
-        </div>
-        <div class="second">
-            <h2 class="text-lg"> Acteurs: </h2>
-            <p > AMIDI <br>
-                B.INTER <br>
-                JAM ALLO GROUPE <br>
-                SERENITY TRAVEL AGENCY
-            </p>
-        </div>
-        <div class="third">
-            <h2 class="text-lg "> Réseaux sociaux: </h2>
-                <p class="net">
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
-                        <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
-                        <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
-                        <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
-                      </div>
-            
-                </p>
-        </div>
-    
-        <div class="fourth"> 
-            <h2 class="text-lg">Contacts: </h2>
-           <p>  +212 555-0000 <br>
-                Email:<br> </p>
-                <p>
-               site web: www.race.com
-                </p>
-        </div>
-        <div class="fifth"> <address class="text-lg"> Adresse</address>
-            <p> Tambacounda, Senegal </p><br>
-    </footer> 
-    
-    <script>
-        document.querySelectorAll('.slider-container').forEach(container => {
-            const slider = container.querySelector('.slider');
-            const slides = container.querySelectorAll('.slide');
-            const prevBtn = container.querySelector('#prev');
-            const nextBtn = container.querySelector('#next');
-            
-            let index = 0;
-            const slidesToShow = 3;
-            const slideWidth = slides[0].offsetWidth + 10; // Largeur d'un slide avec l'espace
-        
-            function showSlide(i) {
-                if (i > slides.length - slidesToShow) index = 0;
-                if (i < 0) index = slides.length - slidesToShow;
-                slider.style.transform = `translateX(-${index * slideWidth}px)`;
-            }
-        
-            nextBtn.addEventListener('click', () => {
-                index += 1;
-                if (index > slides.length - slidesToShow) index = 0;
-                showSlide(index);
-            });
-        
-            prevBtn.addEventListener('click', () => {
-                index -= 1;
-                if (index < 0) index = slides.length - slidesToShow;
-                showSlide(index);
-            });
-        });
-        
-    </script>
-</body>
-</html>

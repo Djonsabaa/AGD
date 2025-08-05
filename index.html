@@ -44,7 +44,6 @@
 
 .logo{
    width: 6%;
-
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -91,7 +90,7 @@
 .main-nav ul li a {
   color: black;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -99,7 +98,7 @@
 }
 
 .main-nav ul li a:hover {
-  color: #4CAF50;
+  color: #2123cc;
 }
 
 /* === Responsive Design : Mobile First === */
@@ -186,10 +185,11 @@
            
          }
 
-         .comd{
+         /* .comd{
          margin-left: 30px;
-          /* background-color: rgb(182, 126, 126); */
-         }
+          /* background-color: rgb(182, 126, 126); 
+         } */
+
         /* Modal */
         .modal {
             position: fixed;
@@ -433,15 +433,16 @@ section{
 .social-icons .fa-twitter{background-color: #1DA1F2; }
 .social-icons .fa-youtube { background-color: #FF0000; }
 
-.footer-bottom {
+  .footer-bottom {
   text-align: center;
-  margin-top: 30px;
-  font-size: 13px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
   color: #ffffff;
   border-top: 1px solid #ffffff;
   padding-top: 15px;
+  background-color: white;
 }
-
 
     /*phrase d accroche */
     .hero {
@@ -511,7 +512,7 @@ section{
         }
       }
       
-   
+ 
 
 </style>
 </head>
@@ -519,7 +520,7 @@ section{
 <body>
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
   <div class="logo">
-    <img src="Images/logo-nature.avif" alt="logo">
+    <img src="Images/log-nature.avif" alt="logo"> 
     <h2 class="clignotant">AGD</h2>
   </div>
 
@@ -531,7 +532,7 @@ section{
       <li><a href="notre_histo.html" target="_blank">À propos</a></li>
       <li><a href="#" onclick="openModal('servicesModal')">Off & Services</a></li>
       <li><a href="#" onclick="openModal('partnersModal')">Nos partenaires</a></li>
-      <li><a href="commande.html" target="_blank" class="comd">Commande</a></li>
+      <!-- <li><a href="commande.html" target="_blank" class="comd">Commande</a></li> -->
     </ul>
   </nav>
 </header>
@@ -760,8 +761,12 @@ utilisant des déchets organiques transformés en engrais naturel.
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copyright ; 2025 AGD. Tous droits réservés.</p>
+
+</footer>
+
+<footer>
+ <div class="footer-bottom">
+    <p style="color: blue;">&copyright; 2025 AGD. Tous droits réservés.</p>
   </div>
 </footer>
 

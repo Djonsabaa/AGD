@@ -1,180 +1,524 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez tout sur les plantes adaptées à l'aquaponie avec ce site dynamique et moderne.">
-    <title>Plantes d'Aquaponie</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <title>Document</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        *{
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+        }
+        body{
+            
         }
 
-        header {
-            background: linear-gradient(45deg, #00796b, #48a999);
-            color: white;
-            padding: 20px 40px;
-            text-align: center;
+        header{
+     height: 100px;
+     width: 100%;
+     background: transparent;
+     transition: all 0.5s ease-out;
+     text-align: center;
+            display: flex;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+                  
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
+        header nav ul {
+           
+            height: 100%;
+            width: 100%;
+            list-style-type: none;
             display: flex;
             justify-content: center;
-            background: #00695c;
-            padding: 10px 0;
+            align-items: center;
+            margin-left: 35%;
+            text-indent: 20px;
+       }
+       .logo{
+        width: 60px;
+       }
+        .logo img{
+            margin-left: 40px;
+            width: 80%;
+            height: 70%;
         }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
+        nav ul li a{
+            color: black;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 24px;
+            margin-left: 15px;
+           /* padding: 5px 10px;*/
+        }
+        ul li a:hover{
+            background-color:rgb(184, 216, 241);
+            color:#007bff;
+            border-radius: 5px;
+            transition: all ease 0.3s;
+        }
+        
+        
+         @keyframes clignoter {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+            }
+        .clignotant{
+            animation: clignoter 3s infinite;
+            color: rgb(96, 140, 223);
+            font-size: large;
+            justify-content: left;
+            margin-left: 45px;
         }
 
-        nav a:hover {
-            color: #48a999;
-        }
+            
+             /* fenetre Modal */
+      .modal {
+        position: fixed;
+        top: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 600px;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        padding: 20px;
+        display: none;
+        z-index: 1000;
+    }
+    .modal h2 {
+        font-size: 1.5em;
+        color: #333;
+    }
+    .modal ul {
+        list-style: none;
+        padding-left: 20px;
+        margin-top: 40px;
+    }
+    .modal ul li a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 1em;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+    .modal ul li a:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+    }
+    
+    .service{
+        display: flex;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        
+    }
+.titre {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
 
-        .content {
-            padding: 40px;
-        }
+        background: #007bff;
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
 
-        .card {
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
+    .titre ul{
+        display: flex;
+        justify-content: center;
+        /*background: #007bff; */
+        padding: 13px 0;
+        list-style-type: none;
+        margin-top: 6px;
+    }
+    .titre a {
+        color: white;
+        margin: 0 20px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+    }
 
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+    .titre a:hover {
+        color: rgb(79, 155, 218);
+    }
 
-        .card-body {
-            padding: 20px;
-        }
+    .content {
+        padding: 40px;
+        background-color: gray-400;
+    }
 
-        .card-body h3 {
-            margin: 0 0 10px;
-            font-size: 1.5rem;
-            color: #00796b;
-        }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
 
-        .card-body p {
-            margin: 0;
-            line-height: 1.5;
-        }
+    .card {
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #00695c;
-            color: white;
-            margin-top: 40px;
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.5rem;
+        color: #00796b;
+    }
+
+    .card-body p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .commander{
+    border:1px solid wheat;
+    background-color:#007bff;
+    color: white;
+    border-radius: 5px;
+    padding:12px;
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+}
+.commander:hover{
+    background-color: rgb(72, 126, 177);
+}
+
+footer{
+            border-bottom-color: white;
+            background-color:rgb(88, 156, 224);
+            color:white;
+            display:flex;
+            padding-top:50px;
+            font-size:15px;
+            align-content: center;
+            margin-top: 80px;
         }
+    footer div{
+        padding:24px;
+
+    }
+    
+        
+    .net a{
+        margin :17px;
+        
+        height:100px;
+        font-size:20px;
+        
+    }
+    .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    margin-left: 2px;
+}
+
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter { background-color: #1DA1F2; }
+.social-icons .fa-facebook-f { background-color: #3b5998; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
-<body>
-    <header>
-        <h1>Plantes d'Aquaponie</h1>
-        <p>Tout savoir sur les plantes adaptées à l'aquaponie</p>
-    </header>
+    <body class="flex flex-col min-h-screen ">  
+        <header>
+            <div class="logo">
+              <img src="Images/logo-nature.avif" alt="logo"> 
+              <h2 class="clignotant">AGD </h2>
+          </div>  
+          
+              <nav>
+                  <ul>
+           <li><a href="index.html" target="_blank"> <i class="fa-solid fa-house" style="color: #e7e5e5;"></i> Accueil </a></li>
+          <li> <a href="notre_histo.html" target="_blank"> A propos</a> </li>
+      
+          <li><a href="#" onclick="openModal('servicesModal')">Services</a></li>
+          <li><a href="#" onclick="openModal('partnersModal')">Nos partenaires</a></li> 
+          <li> <a href="commande.html" target="_blank" class="comd">Commande</a> </li> 
+      </ul>      
+          </nav>
+          </header>
+      <div id="servicesModal" class="modal">
+          <div class="service">
+          <h2>Services:</h2>
+          <ul>
+              <li><a href="legumes.html">légumes</a></li>
+              <li><a href="plantes.html">Plantes</a></li>
+              <li><a href="poissons.html">Poissons</a></li>
+          </ul>
+      
+          <ul>
+              <li><a href="pépinière.html">Pipinière</a></li>
+              <li><a href="Wakkilaré_Savon.html.html">Wakkilaré Savon</a></li>
+              <li><a href="#">Wakkilaré produits</a></li>
+          </ul>
+      </div> </div>
+      
+      <div id="partnersModal" class="modal">
+          <div class="service">  
+          <h2>Nos partenaires:</h2>
+          <ul>
+              <li><a href="#">Partenaire 1</a></li>
+              <li><a href="#">Partenaire 2</a></li>
+              <li><a href="#">Partenaire 3</a></li>
+          </ul>
+      </div> </div>
+      <div id="overlay" class="overlay" onclick="closeModal()"></div>
+    
+  <div class="titre">
+    <ul>
+        <li> <a href="#feuilles">Légumes-feuilles</a></li>
+        <li> <a href="#aromatiques">Herbes aromatiques</a></li>
+        <li><a href="#fruits">Fruits </a> </li>
+        
+    </ul>
+  </div>
 
-    <nav>
-        <a href="#feuilles">Légumes-feuilles</a>
-        <a href="#aromatiques">Herbes aromatiques</a>
-        <a href="#fruits">Fruits et légumes</a>
-    </nav>
-
-    <div class="content">
-        <section id="feuilles">
-            <h2>Légumes-feuilles</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Laitue">
-                    <div class="card-body">
-                        <h3>Laitue</h3>
-                        <p>Facile à cultiver, elle pousse rapidement et convient parfaitement aux systèmes aquaponiques jeunes.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Épinards">
-                    <div class="card-body">
-                        <h3>Épinards</h3>
-                        <p>Riches en nutriments, les épinards sont idéaux pour les climats frais.</p>
-                    </div>
+  
+  <div class="content">
+    <section id="feuilles">
+        <h1>Légumes-feuilles</h1> <br>
+        <div class="grid">
+            <div class="card">
+                <img src="Images/laitue-removebg-preview.png" alt="Laitue">
+                <div class="card-body">
+                    <h3>Laitue</h3>
+                    <p>croquantes, fraîches et riches en nutriments. Elles sont idéales pour vos salades et sandwiches, 
+                        apportant une touche de fraîcheur à vos repas.</p> <br>
+                         <a href="" class="commander">Commander</a> 
                 </div>
             </div>
-        </section>
-
-        <section id="aromatiques">
-            <h2>Herbes aromatiques</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Basilic">
-                    <div class="card-body">
-                        <h3>Basilic</h3>
-                        <p>Parfait pour les plats méditerranéens, il prospère dans les systèmes matures.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Menthe">
-                    <div class="card-body">
-                        <h3>Menthe</h3>
-                        <p>Facile à cultiver, elle offre un parfum frais et agréable.</p>
-                    </div>
+            <div class="card">
+                <img src="Images/epinard.jpg" alt="Épinards">
+                <div class="card-body">
+                    <h3>Épinards</h3>
+                    <p>Doux et légèrement sucré, sans amertume.</p> <br> <a href="" class="commander">Commander</a> 
                 </div>
             </div>
-        </section>
 
-        <section id="fruits">
-            <h2>Fruits et légumes</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Tomates">
-                    <div class="card-body">
-                        <h3>Tomates</h3>
-                        <p>Gourmandes en nutriments, les tomates sont idéales dans des systèmes bien équilibrés.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Poivrons">
-                    <div class="card-body">
-                        <h3>Poivrons</h3>
-                        <p>Disponibles en plusieurs couleurs, ils ajoutent de la diversité à vos cultures.</p>
-                    </div>
+            <div class="card">
+                <img src="Images/chou-vert-frais.jpg" alt="Chou">
+                <div class="card-body">
+                    <h3>Chou</h3>
+                    <p> Acheter les choux cultivés en aquaponie; ils ont une meilleure durée de 
+                        conservation en raison de la qualité de l’eau et de l’environnement contrôlé.</p> <br>
+                        <a href="" class="commander">Commander</a> 
                 </div>
             </div>
-        </section>
+
+        </div>
+    </section> <br> <br> <br>
+
+    <section id="aromatiques">
+        <h1>Herbes aromatiques</h1> <br>
+        <div class="grid">
+            <div class="card">
+                <img src="Images/persil.avif" alt="Basilic">
+                <div class="card-body">
+                    <h3>Persilc</h3>
+                    <p>Bien aromatique et utilisé comme garnature. Il donne un gout spécial dans vos plats.</p>
+                    <br>   <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Images/menthe.webp" alt="Menthe">
+                <div class="card-body">
+                    <h3>Menthe</h3>
+                    <p>Facile à cultiver, elle offre un parfum frais et agréable.</p> <br>  <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+
+           
+
+            <div class="card">
+                <img src="Images/basilic.avif" alt="Basilic">
+                <div class="card-body">
+                    <h3>Basilic</h3>
+                    <p>Frais, parfumés et riches en saveurs.</p> <br> <br><a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+        </div>
+    </section> <br> <br> <br>
+
+    <section id="fruits">
+        <h1>Fruits </h1> <br>
+        <div class="grid">
+            <div class="card">
+                <img src="Images/papayé.jpg" alt="Papayé">
+                <div class="card-body">
+                    <h3>Papayé</h3>
+                    <p>Nos papayés frais idéales pour vos salades de fruit  ou vos jus  .</p> <br> <br>
+                    <a href="" class="commander">Commander</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Images/banane.avif" alt="banane">
+                <div class="card-body">
+                    <h3>Banane</h3>
+                    <p>Nos bananes mures avec une texture lisse et épaise; doux et très bon pour le déssert.</p> <br>
+                    <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Images/mangue.avif" alt="mangue">
+                <div class="card-body">
+                    <h3>Mangue</h3>
+                    <p>Nos délicieuses mangues consommées crues ou transformées en jus.</p> <br>  
+                    <div> <a href="" class="commander">Commander</a> </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img src="Images/citron1.jpg" alt="citron">
+                <div class="card-body">
+                    <h3>Citron</h3>
+                    <p>Acide et peu sucré .</p>  <br>  <br> <br>
+                    <a href="" class="commander">Commander</a>       
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Images/orange.avif" alt="orange">
+                <div class="card-body">
+                    <h3>Orange</h3>
+                    <p>Acide-sucrée, doux et rafraichissant </p> <br>  <br> <br>    <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="Images/mandrine.jfif" alt="Poivrons">
+                <div class="card-body">
+                    <h3>Mandrine</h3>
+                    <p>Doux et légèrement acide.Consommée crue, utilisée dans les jus ou dans les desserts..</p> <br>
+                    <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Images/fraise.avif" alt="fraise">
+                <div class="card-body">
+                    <h3>Fraises</h3>
+                    <p>Nos fraises d'aquaponie sont sucrées, juteuses. Elles sont parfaites en dessert.</p> <br>
+                    <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="Images/pastèque.avif" alt="pasteque">
+                <div class="card-body">
+                    <h3>Pastèque</h3>
+                    <p>Doux et délicieux</p> <br> <br> <br>
+                    <a href="" class="commander">Commander</a> 
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="first">          
+        <img src="logo.png" alt="logo_car" class="logocar">
+    </div>
+    <div class="second">
+        <h2 class="text-lg"> Acteurs: </h2>
+        <p > AMIDI <br>
+            B.INTER <br>
+            JAM ALLO GROUPE <br>
+            SERENITY TRAVEL AGENCY
+        </p>
+    </div>
+    <div class="third">
+        <h2 class="text-lg "> Réseaux sociaux: </h2>
+            <p class="net">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
+                    <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
+                    <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
+                    <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
+                  </div>
+        
+            </p>
     </div>
 
-    <footer>
-        &copy; 2025 Plantes d'Aquaponie. Tous droits réservés.
-    </footer>
+    <div class="fourth"> 
+        <h2 class="text-lg">Contacts: </h2>
+       <p>  +212 555-0000 <br>
+            Email:<br> </p>
+            <p>
+           site web: www.race.com
+            </p>
+    </div>
+    <div class="fifth"> <address class="text-lg"> Adresse</address>
+        <p> Tambacounda, Senegal </p><br>
+</footer> 
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
+    <script>
+            /* Modal*/
+        function openModal(modalId) {
+          document.getElementById(modalId).style.display = 'block';
+          document.getElementById('overlay').style.display = 'block';
+        }
+        
+        function closeModal() {
+          document.querySelectorAll('.modal').forEach(modal => {
+              modal.style.display = 'none';
+          });
+          document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

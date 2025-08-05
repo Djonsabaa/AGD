@@ -6,6 +6,9 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -36,7 +39,115 @@
             margin-bottom: 1rem;
             font-weight: bold;
         }
-        footer {
+
+
+           .footer {
+  background-color: #4571d1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+.social-icons .fa-facebook{background-color: #3b5998; }
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter{background-color: #1DA1F2; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding-top: 15px;
+  background-color: white;
+}
+
+
+  
+      
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes textGlow {
+        from {
+          text-shadow: 0 0 3px #2124d1;
+        }
+        to {
+          text-shadow: 0 0 6px #3f70da;
+        }
+      }
+      
+
+
+
+
+
+
+        /* footer {
             background-color: #333;
             color: #fff;
             text-align: center;
@@ -52,7 +163,8 @@
             .service {
                 flex-basis: 100%;
             }
-        }
+        } */
+
         /* bouton ingredien*/
 
         .output {
@@ -145,11 +257,48 @@
         </section> -->
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Wakkilaré Savon. Tous droits réservés.</p>
-        </div>
-    </footer>
+    /*footer*/
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h4>Contact</h4>
+      <p><i class="fab fa-map-marker-alt"></i> 123 Rue Abbattoir, Tambacounda, Sénégal</p>
+      <p><i class="fab fa-phone-alt"></i> +212 773 45 67 89</p>
+      <p><i class="fab fa-envelope"></i> AGD@gmail.com</p>
+      <p><i class="fab fa-globe"></i> www.AGD.com</p>
+    </div>
+
+    <div class="footer-section social-media">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="notre_histo.html">À propos</a></li>
+        <li><a href="legumes.html">Legumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="Wakkilaré_jus.html">Jus</a></li>
+        <li><a href="Wakkilaré_Savon.html">Savon</a></li>
+      </ul>
+    </div>
+  </div>
+ 
+</footer>
+
+<footer>
+ <div class="footer-bottom">
+    <p style="color: blue;">&copy 2025 AGD. Tous droits réservés.</p>
+  </div>
+</footer>
+
+    
         
         <script>
             function showText(event) {
