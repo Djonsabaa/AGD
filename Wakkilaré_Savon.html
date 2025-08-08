@@ -14,22 +14,30 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
+            margin: 0;
+           padding: 0;
+          overflow-x: hidden;
         }
         .services {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            /* justify-content: space-between; */
+            justify-content: center;
+            gap: 1.5rem;
             margin-top: 2rem;
             background-image: url('Images/savon-naturel-feuilles.jpg');
+            padding: 2rem;
         }
         .service {
-            flex-basis: calc(33.333% - 20px);
+            /* flex-basis: calc(33.333% - 20px); */
             margin-bottom: 2rem;
             background-color: #fff;
             border-radius: 10px;
             padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+              width: 100%;
+            max-width: 300px;
         }
         .service:hover {
             transform: translateY(-5px);
@@ -41,7 +49,7 @@
         }
 
 
-           .footer {
+.footer {
   background-color: #4571d1;
   color: #f0f0f0;
   padding: 40px 20px;
@@ -115,9 +123,6 @@
   padding-top: 15px;
   background-color: white;
 }
-
-
-  
       
       @keyframes fadeIn {
         to {
@@ -140,11 +145,6 @@
           text-shadow: 0 0 6px #3f70da;
         }
       }
-      
-
-
-
-
 
 
         /* footer {
@@ -167,58 +167,96 @@
 
         /* bouton ingredien*/
 
-        .output {
-            margin-top: 10px;
-            font-size: 18px;
-            width: 500px;
+        #output {
+             margin: auto;
+            font-size: 1.1rem;
+            width: 98%;
             text-align: center;
-            justify-content: center;
-            align-items: center;
-            margin-left: 500px;
-            background-color: white;
-            color: blue;
+            align-items: center; 
+            background-color: white; 
+            color: rgb(98, 98, 238);
+            white-space: normal;
+             word-wrap: break-word;
+             box-sizing: border-box; 
+            
         }
+
+        @media screen and (max-width: 768px) {
+  .services {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .service {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #output {
+    font-size: 1rem;
+    width: 95%;
+  }
+}
+        /* @media screen and (max-width: 480px) {
+  #output {
+    font-size: 1.1rem;
+    padding: 8px;
+    width: 95%;
+     white-space: normal
+  }
+}
+
+/* 👇 Pour les écrans moyens 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #output {
+    font-size: 14px;
+    width: 90%;
+  }
+} */
     </style>
 </head>
 <body >
     <main>
-        <section class="hero bg-blue-400  text-white py-20">
-            <div class="container max-auto text-center ">
-                <h3 class="text-3xl font-bold mb-4">Découvrez notre large gamme de Savons Cosmétiques Naturels</h3>
+        <section class="hero bg-blue-400  text-white py-12">
+            <div class="container mx-auto text-center ">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Découvrez notre large gamme de Savons Cosmétiques Naturels</h3>
                 <p class="text-xl mb-8">Fabriqués à partir de plantes pour prendre soin de votre peau en douceur</p>
                 
+                <div class="flex flex-col sm:flex-row justify-center gap-4"> 
                 <a href="#services" class="bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold 
                 hover:bg-blue-300 transition duration-300  border-2 border-solid"> Voir Wakkilaré Savon</a>
 
                     <a href="#categories" class=" bg-white text-blue-400 border-2 border-blue-400 py-2 px-6 rounded-full text-lg 
                     font-semibold hover:bg-blue-300 transition duration-300" onclick="showText(event)">
                     Voir nos ingrédients </a> 
-                    <div id="output" class="mt-4"></div>    
+                    </div>  
+                    <div id="output" class="output mt-6 mx-auto text-center break-words text-lg font-medium "></div>    
             </div>
-        </section>  <br>
+
+        </section>  <br> 
         <h3 class="text-2xl font-bold text-center mb-12">Nos Catégories de Wakkilaré Savons <br> 100 % naturels : sans produits chimiques agressifs.</h3>
-        <section id="services" class="services">
-            <div class="service">
+        <section id="services" class="services container mx-auto px-4 flex flex-wrap justify-center gap-6">
+            <div class="service bg-white rounded-lg shadow-md p-6 w-full sm:w-[45%] lg:w-[30%]">
                 <h3>Savon Nourrisson</h3>
                 <p>Doux et délicat pour la peau sensible des bébés.</p>
             </div>
-            <div class="service">
+            <div class="service bg-white rounded-lg shadow-md p-6 w-full sm:w-[45%] lg:w-[30%]">
                 <h3>Savon de Luxe</h3>
                 <p>Pour tous les âges, offre une expérience sensorielle unique tout en apportant des bienfaits à la peau.</p>
             </div>
-            <div class="service">
+            <div class="service bg-white rounded-lg shadow-md p-6 w-full sm:w-[45%] lg:w-[30%]">
                 <h3>Savon ordinaire</h3>
                 <p>Moins cher pour vos besoins.</p>
             </div>
-            <div class="service">
+            <div class="service bg-white rounded-lg shadow-md p-6 w-full sm:w-[45%] lg:w-[30%]">
                 <h3>Savon Liquide</h3>
                 <p>Idéal pour  un usage  quotidien, pratique et efficace pour l'entretien de votre maison </p>
             </div>
-            <div class="service">
+            <div class="service bg-white rounded-lg shadow-md p-6 w-full sm:w-[45%] lg:w-[30%]">
                 <h3>Savon en Poudre</h3>
                 <p>Innovant et idéal pour la lessive.</p>
             </div>
-            <div class="service">
+            <div class="service bg-white rounded-lg shadow-md p-6 w-full sm:w-[45%] lg:w-[30%]">
                 <h3>Savon multi-usage</h3>
                 <p>On vous propose un produit polyvalent adapté à différents besoins pour vos soins quotidiens.</p>
             </div> 
@@ -257,7 +295,7 @@
         </section> -->
     </main>
 
-    /*footer*/
+    
     <footer class="footer">
   <div class="footer-container">
     <div class="footer-section contact-info">
@@ -316,6 +354,7 @@
             
               const output = document.getElementById("output");
               output.innerHTML = ""; // vider si on clique plusieurs fois
+              
             
               const container = document.createElement("div");
               container.style.backgroundColor = "";

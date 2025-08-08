@@ -30,10 +30,15 @@
             gap: 10px;
         }
 
-        .slide {
-            flex: 0 0 calc(100% / 3);
-            transition: 0.5s;
-            text-align: center;
+.slide {
+     flex: 0 0 calc(100% / 3);
+    transition: 0.5s;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* aligne tout en haut */
+    padding: 10px;
         }
 
         .slider img {
@@ -55,7 +60,7 @@
             color: #4a5568;
         }
     
-        .slide .price {
+.slide .price {
     display: inline-block;
     margin-top: 8px;
     font-size: 1.25rem;
@@ -131,11 +136,11 @@
         }
         .cart-total {
             font-weight: 700;
-            color: #16a34a;
+            color: #007bff;
             font-size: 1.2em;
         }
         .add-to-cart {
-            background: linear-gradient(135deg, #16a34a, #15803d);
+            background: linear-gradient(135deg, #007bff, #237fe2);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -154,7 +159,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #16a34a;
+            background: #007bff;
             color: white;
             width: 60px;
             height: 60px;
@@ -187,54 +192,81 @@
         }
 
 
-        footer{
-            border-bottom-color: white;
-            background-color:rgb(88, 156, 224);
-            color:white;
-            display:flex;
-            padding-top:50px;
-            font-size:15px;
-            align-content: center;
-            margin-top: 80px;
-        }
-    footer div{
-        padding:24px;
+  /* footer */
+  .footer {
+  background-color: #4571d1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  height: 30%;
+}
 
-    }
-    
-        
-    .net a{
-        margin :17px;
-        
-        height:100px;
-        font-size:20px;
-        
-    }
-    .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a:hover {
+  text-decoration: underline;
 }
 
 .social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    margin-left: 2px;
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
 }
-.social-icons .fa-instagram { background-color: #DD2A7B; }
-.social-icons .fa-twitter { background-color: #1DA1F2; }
-.social-icons .fa-facebook-f { background-color: #3b5998; }
-.social-icons .fa-youtube { background-color: #FF0000; }
 
 .social-icons a:hover {
-    transform: scale(1.1);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+.social-icons .fa-facebook{background-color: #3b5998; }
+.social-icons .fa-instagram { background-color: #DD2A7B; }
+.social-icons .fa-twitter{background-color: #1DA1F2; }
+.social-icons .fa-youtube { background-color: #FF0000; }
+
+.footer-bottom {
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding-top: 15px;
 }
     </style>
 </head>
@@ -248,34 +280,34 @@
         </div>
     </section>
 
-    <section class="py-16 text-center">
-        <h2 class="text-3xl font-bold">Nos Plantes</h2>
+    <section class="py-12 text-center">
+        <h2 class="text-3xl font-bold text-blue-600"> Nos Plantes</h2>
     </section>
 
     <div class="slider-container">
         <div class="slider">
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300  ">
-                <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/bambou.png" alt="bambou" onclick="openProductModal('bambou')" style="cursor: pointer;" 
-                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
-                
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300  ">
+                <img class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300" src="Images/bambou.png" alt="bambou" onclick="openProductModal('bambou')" style="cursor: pointer;" 
+                     class="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"> 
                 <div class="p-4 group-hover:bg-white transition duration-300"> 
                 <h3  class="text-lg font-semibold text-gray-800"> Bambou </h3>
                 <p class="text-sm text-gray-600 mt-1"> Variétés de bambou pour une ambiance zen.</p>
                 <span class="price"> Prix: 5O Dhs </span>   
-                
+                 
             </div>
             </div>
 
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/olivier.png" alt="olivier" onclick="openProductModal('olivier')" style="cursor: pointer;"
                 class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" >
                <div class="p-4 group-hover:bg-white transition duration-300"> 
                 <h3>Olivier</h3>
                 <p>Plantes fraîches pour un potager sain.</p> 
                 <span class="price"> Prix: 6O Dhs</span>
+
             </div>
             </div>
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/plantes_d_ornement.png" alt="fleur_ornementale" onclick="openProductModal('fleur_ornementale')" style="cursor: pointer;" 
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                     <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -285,7 +317,7 @@
             </div>
             </div>
 
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/fleurs_deco.png" alt="fleur_déco" onclick="openProductModal('fleur_déco')" style="cursor: pointer;"
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -295,7 +327,7 @@
             </div>
             </div>
 
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/haie-buisson.png" alt="haie_buisson" onclick="openProductModal('haie_buisson')" style="cursor: pointer;"
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -311,23 +343,23 @@
     </div>
 
     <section class="py-16 text-center">
-        <h2 class="text-3xl font-bold">Nos semences</h2>
+        <h2 class="text-3xl font-bold text-blue-600">Nos semences</h2>
     </section>
 
     <div class="slider-container">
         <div class="slider">
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/acacia.png" alt="acacia" onclick="openProductModal('acacia')" style="cursor: pointer;"
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                <div class="p-4 group-hover:bg-white transition duration-300"> 
                 <h3>Acacia</h3>
-                <p>.</p> 
+                <p></p> 
                 <span class="price">Prix: 3O Dhs</span>
                 </div> 
             </div>
 
               
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/Moringa oleifera.png" alt="moringa" onclick="openProductModal('moringa')" style="cursor: pointer;"
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -337,7 +369,7 @@
             </div>
              </div>
 
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/plantes-goyave.png" alt="goyave" onclick="openProductModal('goyave')" style="cursor: pointer;"
                       class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -347,17 +379,17 @@
             </div>
             </div>
              
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/plante_aloe vera.jpg" alt="aloe_vera" onclick="openProductModal('aloe_vera')" style="cursor: pointer;"
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                <div class="p-4 group-hover:bg-white transition duration-300"> 
                 <h3>Aloe vera</h3>
                 <p></p>
-                <span class="price">Prix: 6O Dhs</span>
+                <span class="price">Prix: 7O Dhs</span>
             </div>
             </div>
 
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/laurier-rose.avif" alt="laurier_rose" onclick="openProductModal('laurier_rose')" style="cursor: pointer;"
                      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -367,7 +399,7 @@
             </div>
             </div>
 
-            <div class="slide group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+            <div class="slide bg-blue-50 group max-w-sm  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
                 <img class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" src="Images/Eucalyptus_Alba.png" alt="eucalyptus" onclick="openProductModal('eucalyptus')" style="cursor: pointer;"
                       class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div class="p-4 group-hover:bg-white transition duration-300"> 
@@ -387,8 +419,9 @@
         <button id="prev" class="slider-btn">&#10094;</button>
         <button id="next" class="slider-btn">&#10095;</button>
     </div>
+    <br> <br>
 
-    <section id="contact" class="bg-blue-100 py-16">
+    <!-- <section id="contact" class="bg-blue-100 py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
             <form class="max-w-lg mx-auto">
@@ -407,7 +440,7 @@
                 <button type="submit" class="w-full bg-blue-400 text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">Envoyer</button>
             </form>
         </div>
-    </section>
+    </section> -->
 
 
     <!-- Modal Produit -->
@@ -460,7 +493,7 @@
                 </div>
 
                  <input id="nomClient" type="text" placeholder="Votre nom" class="border p-2 w-full mt-4">
-                <button onclick="validateOrder()" class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                <button onclick="validateOrder()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
                     Valider la commande
                 </button>
 
@@ -525,7 +558,7 @@
             
           moringa: {
                 name: "Moringa oleifera",           
-                price: 8.0,
+                price: 50.00,
                 image:"Images/Moringa oleifera.png",
                 description: "Plante moringa."
             },
@@ -539,21 +572,21 @@
 
               aloe_vera: {
                 name: "Aloe vera",           
-                price: 40.00,
+                price: 70.00,
                 image:"Images/plante_aloe vera.jpg",
                 description: "plante aloe vera."
             },
 
             laurier_rose: {
                 name: "Laurier-rose",           
-                price: 50.00,
+                price: 60.00,
                 image:"Images/laurier-rose.avif",
                 description: "plante laurier-rose."
             },
 
             eucalyptus: {
                 name: "Eucalyptus",           
-                price: 30.00,
+                price: 50.00,
                 image:"Images/Eucalyptus_Alba.png",
                 description: "plante Eucalyptus_Alba."
             },
@@ -794,40 +827,41 @@
         // Initialisation
         updateCartCount();
     </script>
-    <footer>
-        
-        <div class="second ml-8">
-            <h2 class="text-lg"> Acteurs: </h2>
-            <p > AMIDI <br>
-                B.INTER <br>
-                JAM ALLO GROUPE <br>
-                SERENITY TRAVEL AGENCY
-            </p>
-        </div>
-        <div class="third">
-            <h2 class="text-lg "> Réseaux sociaux: </h2>
-                <p class="net">
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
-                        <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
-                        <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
-                        <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
-                      </div>
-            
-                </p>
-        </div>
-    
-        <div class="fourth"> 
-            <h2 class="text-lg">Contacts: </h2>
-           <p>  +212 555-0000 <br>
-                Email:<br> </p>
-                <p>
-               site web: www.race.com
-                </p>
-        </div>
-        <div class="fifth"> <address class="text-lg"> Adresse</address>
-            <p> Tambacounda, Senegal </p><br>
-    </footer> 
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h4>Contact</h4>
+      <p><i class="fab fa-map-marker-alt"></i> 123 Rue Abbattoir, Tambacounda, Sénégal</p>
+      <p><i class="fab fa-phone-alt"></i> +212 773 45 67 89</p>
+      <p><i class="fab fa-envelope"></i> AGD@gmail.com</p>
+      <p><i class="fab fa-globe"></i> www.AGD.com</p>
+    </div>
+
+    <div class="footer-section social-media">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="notre_histo.html">À propos</a></li>
+        <li><a href="legumes.html">Legumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="Wakkilaré_jus.html">Jus</a></li>
+        <li><a href="Wakkilaré_Savon.html">Savon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p style="text-align: center; color: white;">&copy 2025 AGD. Tous droits réservés.</p>
+  </div>
+</footer>    
     
     <script>
         document.querySelectorAll('.slider-container').forEach(container => {

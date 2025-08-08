@@ -17,26 +17,52 @@
             font-size: 16px;
         }
 
-        header{
+    header{
      height: 100px;
      width: 100%;
      background-color: white;
+     position: sticky;
+     top: 0;
      transition: all 0.5s ease-out;
      text-align: center;
-            display: flex;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
                   
-        }
-        header nav ul {
-           
-            height: 100%;
-            width: 100%;
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 35%;
-            text-indent: 20px;
+    }
+
+ ul li a:hover{
+    background-color:rgb(184, 216, 241);
+    color:#007bff;
+    border-radius: 5px;
+    transition: all ease 0.3s;
+}
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  cursor: pointer;
+  display: none; /* visible uniquement sur mobile */
+}  
+.main-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+        
+       .main-nav ul {
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 35%;
+        text-indent: 20px;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 0;
+       flex-wrap: wrap;
        }
        .logo{
         width: 60px;
@@ -46,20 +72,70 @@
             width: 80%;
             height: 70%;
         }
-        nav ul li a{
+      /*  nav ul li a{
             color: black;
             text-decoration: none;
-            font-size: 24px;
+            
             margin-left: 15px;
-           /* padding: 5px 10px;*/
-        }
-        ul li a:hover{
-            background-color:rgb(184, 216, 241);
-            color:#007bff;
-            border-radius: 5px;
-            transition: all ease 0.3s;
-        }
-        
+         
+        }*/
+.main-nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+  
+.main-nav ul li a:hover {
+  color: #2123cc;
+}
+
+/* Responsive Design : Mobile  */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .main-nav ul li {
+    text-align: center;
+    width: 100%;
+    
+  }
+}
+
+.main-nav nav ul li a{
+     color: black;
+     text-decoration: none;
+    font-size: 24px;
+    margin-left: 15px;
+ }
         
          @keyframes clignoter {
             0% {opacity: 1;}
@@ -75,7 +151,7 @@
         }
 
             
-             /* fenetre Modal */
+        /* fenetre Modal */
       .modal {
         position: fixed;
         top: 110px;
@@ -217,14 +293,29 @@
         margin: 0;
         line-height: 1.5;
     }
-
+.prixCmd{
+  display: flex;
+  justify-content: space-between;
+  
+}
+ .price {
+    display: inline-block;
+    margin-top: 2%;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2563eb; 
+    background-color: #e0f2fe; 
+    padding: 4px 12px;
+    border-radius: 8px;
+    }
+     
     .commander{
     border:1px solid wheat;
     background: linear-gradient(135deg, #007bff, #2124d1);
     color: white;
     border-radius: 8px;
     padding: 10px 20px;
-    font-size:16px;
+    font-size: 12px;
     font-weight:700;
     text-decoration:none;
     transition: all 0.3s ease;
@@ -284,11 +375,11 @@
         }
         .cart-total {
             font-weight: 700;
-            color: #16a34a;
+            color: #007bff;
             font-size: 1.2em;
         }
         .add-to-cart {
-            background: linear-gradient(135deg, #16a34a, #15803d);
+            background: linear-gradient(135deg, #007bff, #237fe2);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -307,7 +398,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #16a34a;
+            background: #007bff;
             color: white;
             width: 60px;
             height: 60px;
@@ -339,55 +430,81 @@
             font-weight: 600;
         }
 
-footer{
-            border-bottom-color: white;
-            background-color:rgb(88, 156, 224);
-            color:white;
-            display:flex;
-            padding-top:50px;
-            font-size:15px;
-            align-content: center;
-            margin-top: 80px;
-        }
-    footer div{
-        padding:24px;
+ /* footer */
+  .footer {
+  background-color: #4571d1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  height: 30%;
+}
 
-    }
-    
-        
-    .net a{
-        margin :17px;
-        
-        height:100px;
-        font-size:20px;
-        
-    }
-    .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a:hover {
+  text-decoration: underline;
 }
 
 .social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    margin-left: 2px;
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
 }
 
+.social-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+.social-icons .fa-facebook{background-color: #3b5998; }
 .social-icons .fa-instagram { background-color: #DD2A7B; }
-.social-icons .fa-twitter { background-color: #1DA1F2; }
-.social-icons .fa-facebook-f { background-color: #3b5998; }
+.social-icons .fa-twitter{background-color: #1DA1F2; }
 .social-icons .fa-youtube { background-color: #FF0000; }
 
-.social-icons a:hover {
-    transform: scale(1.1);
+.footer-bottom {
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding-top: 15px;
 }
 
     </style>
@@ -398,8 +515,8 @@ footer{
               <img src="Images/log-nature.avif" alt="logo"> 
               <h2 class="clignotant">AGD </h2>
           </div>  
-          
-              <nav>
+          <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+              <nav class="main-nav">
                   <ul>
            <li><a href="index.html" target="_blank"> <i class="fa-solid fa-house" style="color: #e7e5e5;"></i> Accueil </a></li>
           <li> <a href="notre_histo.html" target="_blank"> A propos</a> </li>
@@ -436,15 +553,13 @@ footer{
       </div> </div>
       <div id="overlay" class="overlay" onclick="closeModal()"></div>
     
-  <div class="titre bg-blue-100">
-    <ul>
-        <li> <a href="#feuilles">Légumes-feuilles</a></li>
-        <li> <a href="#aromatiques">Herbes aromatiques</a></li>
-        <li><a href="#fruits">Fruits </a> </li>
-        
+  <div class="titre bg-blue-100 px-4 py-2">
+    <ul class="flex flex-col md:flex-row gap-4 justify-center items-center text-center">
+        <li> <a href="#feuilles" class="text-blue-700 hover:underline"> Légumes-feuilles</a></li>
+        <li> <a href="#aromatiques" class="text-blue-700 hover:underline"> Herbes aromatiques</a></li>
+        <li><a href="#fruits" class="text-blue-700 hover:underline"> Fruits </a> </li>
     </ul>
   </div>
-
   
   <div class="content">
     <section id="feuilles">
@@ -454,19 +569,13 @@ footer{
                 <img src="Images/laitue-removebg-preview.png" alt="laitue" class="plante-image">
                 <div class="card-body">
                     <h3>Laitue</h3>
-                    <p>croquantes, fraîches et riches en nutriments. Elles sont idéales pour vos salades et sandwiches, 
+                    <p> Croquantes, fraîches et riches en nutriments. Elles sont idéales pour vos salades et sandwiches, 
                         apportant une touche de fraîcheur à vos repas.</p> <br>
                          <!-- <a href="" class="commander">Commander</a>  -->
+                          <div class="prixCmd"> 
+                            <p class="price">Prix : 2 DHS /pièce </p>
                           <button class="commander" onclick="openProductModal('laitue')">Commander</button>
-                </div>
-            </div>
-            <div class="plante-card">
-                <img src="Images/epinard.jpg" alt="épinard" class="plante-image">
-                <div class="card-body">
-                    <h3>Epinard</h3>
-                    <p>Doux et légèrement sucré, sans amertume.</p> <br> 
-                     <button class="commander" onclick="openProductModal('épinard')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
 
             <div class="plante-card">
@@ -475,8 +584,21 @@ footer{
                     <h3>Chou</h3>
                     <p> Acheter les choux cultivés en aquaponie; ils ont une meilleure durée de 
                         conservation en raison de la qualité de l’eau et de l’environnement contrôlé.</p> <br>
+                    <div class="prixCmd"> 
+                    <p class="price">Prix : 8 DHS /kg </p>    
                         <button class="commander" onclick="openProductModal('chou')">Commander</button> 
-                </div>
+                </div> </div>
+            </div>
+
+            <div class="plante-card">
+                <img src="Images/epinard.jpeg" alt="épinard" class="plante-image">
+                <div class="card-body">
+                    <h3>Epinard</h3>
+                    <p>Doux et légèrement sucré, sans amertume.</p> <br> <br>
+                    <div class="prixCmd"> 
+                    <p class="price">Prix : 5 DHS /pièce </p>
+                     <button class="commander" onclick="openProductModal('épinard')">Commander</button> 
+                </div> </div>
             </div>
 
         </div>
@@ -490,8 +612,10 @@ footer{
                 <div class="card-body">
                     <h3>Persil</h3>
                     <p>Bien aromatique et utilisé comme garnature. Il donne un gout spécial dans vos plats.</p>
+                   <div class="prixCmd"> 
+                    <p class="price">Prix : 2 DHS /pièce </p>
                     <br>   <button class="commander" onclick="openProductModal('persil')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
 
             <div class="plante-card">
@@ -499,8 +623,10 @@ footer{
                 <div class="card-body">
                     <h3>Menthe</h3>
                     <p>Facile à cultiver, elle offre un parfum frais et agréable.</p> <br>  
+                     <div class="prixCmd"> 
+                    <p class="price">Prix : 2 DHS /pièce </p>
                     <button class="commander" onclick="openProductModal('menthe')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
 
            
@@ -510,8 +636,10 @@ footer{
                 <div class="card-body">
                     <h3>Basilic</h3>
                     <p>Frais, parfumés et riches en saveurs.</p> <br> <br>
+                    <div class="prixCmd"> 
+                    <p class="price">Prix : 2 DHS /pièce </p>
                     <button class="commander" onclick="openProductModal('basilic')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
         </div>
     </section> <br> <br> <br>
@@ -523,26 +651,33 @@ footer{
                 <img src="Images/papayé.jpg" alt="papayé" class="plante-image">
                 <div class="card-body">
                     <h3>Papayé</h3>
-                    <p>Nos papayés frais idéales pour vos salades de fruit  ou vos jus.</p> <br> <br>
-                   <button class="commander" onclick="openProductModal('papayé')">Commander</button> 
-                </div>
+                    <p>Nos papayés frais idéales pour vos salades de fruit  ou vos jus.</p> <br> 
+                  <div class="prixCmd"> 
+                    <p class="price">Prix : 10 DHS /kg </p>
+                    <button class="commander" onclick="openProductModal('papayé')">Commander</button> 
+                </div> </div>
             </div>
+
             <div class="plante-card">
                 <img src="Images/banane.avif" alt="banane" class="plante-image">
                 <div class="card-body">
                     <h3>Banane</h3>
-                    <p>Nos bananes mures avec une texture lisse et épaise; doux et très bon pour le déssert.</p> <br>
+                    <p>Nos bananes mûres avec une texture lisse et épaise. Doux et très bon .</p> <br>
+                    <div class="prixCmd"> 
+                    <p class="price">Prix : 12 DHS /kg </p>
                     <button class="commander" onclick="openProductModal('banane')">Commander</button>  
-                </div>
+                </div> </div>
             </div>
 
-            <div class="card">
+            <div class="plante-card">
                 <img src="Images/mangue.avif" alt="mangue" class="plante-image">
                 <div class="card-body">
                     <h3>Mangue</h3>
                     <p>Nos délicieuses mangues consommées crues ou transformées en jus.</p> <br>  
-                   <button class="commander" onclick="openProductModal('mangue')">Commander</button> 
-                </div>
+                   <div class="prixCmd"> 
+                    <p class="price">Prix : 30 DHS /kg </p>
+                    <button class="commander" onclick="openProductModal('mangue')">Commander</button> 
+                </div> </div>
             </div>
 
 
@@ -550,26 +685,36 @@ footer{
                 <img src="Images/citron1.jpg" alt="citron" class="plante-image">
                 <div class="card-body">
                     <h3>Citron</h3>
-                    <p>Acide et peu sucré.</p>  <br>  <br> <br>
+                    <p>Acide et peu sucré.</p>  <br>  <br>
+                    <div class="prixCmd"> 
+                    <p class="price">Prix : 6 DHS /kg </p>
                     <button class="commander" onclick="openProductModal('citron')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
-
+       
+            </div>
+            
+            <br> <br> <br>
+            <div class="grid"> 
             <div class="plante-card">
                 <img src="Images/orange.avif" alt="orange" class="plante-image">
                 <div class="card-body">
                     <h3>Orange</h3>
-                    <p>Acide-sucrée, doux et rafraichissant </p> <br>  <br> <br>   
-                     <button class="commander" onclick="openProductModal('orange')">Commander</button> 
-                </div>
+                    <p>Acide-sucrée, doux et rafraichissant. </p> <br>  <br> 
+                     <div class="prixCmd"> 
+                    <p class="price">Prix : 8 DHS /kg  </p>
+                    <button class="commander" onclick="openProductModal('orange')">Commander</button> 
+                </div> </div>
             </div>
             <div class="plante-card">
                 <img src="Images/mandrine.jfif" alt="mandrine" class="plante-image">
                 <div class="card-body">
-                    <h3>Mandrine</h3>
-                    <p>Doux et légèrement acide.Consommée crue, utilisée dans les jus ou dans les desserts.</p> <br>
+                    <h3>Mandarine</h3>
+                    <p>Doux et légèrement acide. Utilisée dans les jus ou dans les desserts.</p> <br>
+                   <div class="prixCmd"> 
+                    <p class="price">Prix : 5 DHS /kg </p>
                     <button class="commander" onclick="openProductModal('mandrine')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
 
             <div class="plante-card">
@@ -577,22 +722,26 @@ footer{
                 <div class="card-body">
                     <h3>Fraise</h3>
                     <p>Nos fraises d'aquaponie sont sucrées, juteuses. Elles sont parfaites en dessert.</p> <br>
+                   <div class="prixCmd"> 
+                    <p class="price">Prix : 10 DHS /kg </p>
                     <button class="commander" onclick="openProductModal('fraise')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
             <div class="plante-card">
                 <img src="Images/pastèque.avif" alt="pastèque" class="plante-image">
                 <div class="card-body">
                     <h3>Pastèque</h3>
-                    <p>Doux et délicieux</p> <br> <br> <br>
+                    <p>Doux et délicieux. </p> <br> <br> 
+                     <div class="prixCmd"> 
+                    <p class="price">Prix : 10 DHS /kg </p>
                     <button class="commander" onclick="openProductModal('pastèque')">Commander</button> 
-                </div>
+                </div> </div>
             </div>
-
             
         </div>
     </section>
 </div>
+<br> <br>
 
 <!-- Modal Produit -->
     <div id="productModal" class="product-modal">
@@ -643,7 +792,7 @@ footer{
                 </div>
 
                  <input id="nomClient" type="text" placeholder="Votre nom" class="border p-2 w-full mt-4">
-                <button onclick="validateOrder()" class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                <button onclick="validateOrder()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
                     Valider la commande
                 </button>
 
@@ -660,20 +809,26 @@ footer{
         <span id="cartCount" class="cart-count">0</span>
     </div>
 
-
       <script>
+              /* ouvrir et fermer le menu */
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.main-nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
         // Données des produits
         const products = {
              laitue: {
                 name: "Laitue",
                 price: 2.0,
-                image: "https://placehold.co/400x200/16a34a/ffffff?text=Laitue",
+                image: "Images/laitue-removebg-preview.png",
                 description: "Fraîche et croquante, notre laitue d'aquaponie est idéale pour vos salades du quotidien. Cultivée dans un système durable et écologique, elle est riche en vitamines K et A. Sa texture tendre et son goût délicat en font le complément parfait pour toutes vos préparations fraîches."
             },
             épinard: {
                 name: "Epinard",
                 price: 5.00,
-                image:"Images/epinard.jpg",
+                image:"Images/epinard.jpeg",
                 description: "Doux et légèrement sucré, sans amertume." 
             },
 
@@ -706,14 +861,14 @@ footer{
             
              papayé: {
                 name: "Papayé",
-                price: 8.0,
+                price: 10.00,
                 image: "Images/papayé.jpg",
                 description: "Nos papayés frais idéales pour vos salades de fruit  ou vos jus."
             },
 
             banane: {
                 name: "Banane",
-                price: 8.0,
+                price: 12.00,
                 image: "Images/banane.avif",
                 description: "Nos bananes mures avec une texture lisse et épaise; doux et très bon pour le déssert."
             },
@@ -721,7 +876,7 @@ footer{
            
            mangue: {
                 name: "Mangue",
-                price: 4.0,
+                price: 30.00,
                 image: "Images/mangue.avif",
                 description: "Nos délicieuses mangues consommées crues ou transformées en jus."
             },
@@ -734,28 +889,28 @@ footer{
             },
             orange: {
                 name: "Orange",
-                price: 4.00,
+                price: 8.00,
                 image: "Images/orange.avif",
                 description: "Acide-sucrée, doux et rafraichissant."
             },
 
             mandrine: {
-                name: "Mandrine",
-                price: 4.00,
+                name: "Mandarine",
+                price: 5.00,
                 image: "Images/mandrine.jfif",
                 description: "Doux et légèrement acide.Consommée crue, utilisée dans les jus ou dans les desserts."
             },
 
             fraise: {
                 name: "Fraise",
-                price: 4.00,
+                price: 10.00,
                 image: "Images/fraise.avif",
                 description: "Nos fraises d'aquaponie sont sucrées, juteuses. Elles sont parfaites en dessert."
             },
 
              pastèque: {
                 name: "Pastèque",
-                price: 4.00,
+                price: 10.00,
                 image: "Images/pastèque.avif",
                 description: "Doux et délicieux."
             }
@@ -996,41 +1151,40 @@ footer{
     </script>
 
 
-<footer>
-    <div class="first">          
-        <img src="logo.png" alt="logo_car" class="logocar">
-    </div>
-    <div class="second">
-        <h2 class="text-lg"> Acteurs: </h2>
-        <p > AMIDI <br>
-            B.INTER <br>
-            JAM ALLO GROUPE <br>
-            SERENITY TRAVEL AGENCY
-        </p>
-    </div>
-    <div class="third">
-        <h2 class="text-lg "> Réseaux sociaux: </h2>
-            <p class="net">
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/lamergo_group/profilecard/?igsh=MXRvdWFte TEObGY waQ==" target="_blank" class="fa-brands fa-instagram"></a>
-                    <a href="https://www.twitter.com" target="_blank" class="fa-brands fa-twitter"></a>
-                    <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook-f"></a>
-                    <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube"></a>
-                  </div>
-        
-            </p>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h4>Contact</h4>
+      <p><i class="fab fa-map-marker-alt"></i> 123 Rue Abbattoir, Tambacounda, Sénégal</p>
+      <p><i class="fab fa-phone-alt"></i> +212 773 45 67 89</p>
+      <p><i class="fab fa-envelope"></i> AGD@gmail.com</p>
+      <p><i class="fab fa-globe"></i> www.AGD.com</p>
     </div>
 
-    <div class="fourth"> 
-        <h2 class="text-lg">Contacts: </h2>
-       <p>  +212 555-0000 <br>
-            Email:<br> </p>
-            <p>
-           site web: www.race.com
-            </p>
+    <div class="footer-section social-media">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
-    <div class="fifth"> <address class="text-lg"> Adresse</address>
-        <p> Tambacounda, Senegal </p><br>
+
+    <div class="footer-section links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="notre_histo.html">À propos</a></li>
+        <li><a href="legumes.html">Legumes</a></li>
+        <li><a href="plantes.html">Plantes</a></li>
+        <li><a href="Wakkilaré_jus.html">Jus</a></li>
+        <li><a href="Wakkilaré_Savon.html">Savon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p style="text-align: center; color: white;">&copy 2025 AGD. Tous droits réservés.</p>
+  </div>
 </footer> 
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
